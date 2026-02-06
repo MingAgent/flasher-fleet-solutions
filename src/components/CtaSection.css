@@ -1,0 +1,43 @@
+/* ===========================================
+   CTA Section Component Styles
+   =========================================== */
+
+.cta-section {
+  padding: var(--space-3xl) var(--space-md);
+}
+
+.cta-dark {
+  background: var(--forge-black);
+}
+
+.cta-navy {
+  background: var(--navy-command);
+}
+
+.cta-content {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.cta-title {
+  font-family: var(--font-headline);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: var(--weight-bold);
+  color: white;
+  margin-bottom: var(--space-md);
+}
+
+.cta-subtitle {
+  font-size: 1.1rem;
+  color: var(--chrome-silver);
+  margin-bottom: var(--space-xl);
+  line-height: 1.7;
+}
+
+/* Tablet Breakpoint */
+@media (min-width: 768px) {
+  .cta-section {
+    padding: var(--space-4xl) var(--space-xl);
+  }
+}

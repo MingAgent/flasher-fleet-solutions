@@ -1,0 +1,82 @@
+/* ===========================================
+   Law Enforcement Page Styles
+   =========================================== */
+
+.law-enforcement-page {
+  overflow-x: hidden;
+}
+
+/* Services Section */
+.services-section {
+  background: var(--steel-white);
+}
+
+/* Why Section */
+.why-section {
+  background: white;
+}
+
+.why-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.why-text h2 {
+  font-family: var(--font-headline);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  color: var(--navy-command);
+  margin-bottom: var(--space-lg);
+}
+
+.why-text p {
+  color: var(--warm-gray);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: var(--space-md);
+}
+
+.features-list {
+  list-style: none;
+  margin-top: var(--space-xl);
+  display: grid;
+  gap: var(--space-md);
+}
+
+.features-list li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-family: var(--font-subheading);
+  font-weight: var(--weight-medium);
+  color: var(--navy-command);
+}
+
+.features-list svg {
+  color: var(--heritage-red);
+  flex-shrink: 0;
+}
+
+/* Vendors Section */
+.vendors-section {
+  background: var(--steel-white);
+}
+
+.vendors-note {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.vendors-note p {
+  color: var(--warm-gray);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Desktop */
+@media (min-width: 768px) {
+  .features-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

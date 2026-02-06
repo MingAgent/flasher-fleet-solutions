@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Flasher Fleet Solutions - Comprehensive fleet management services including tracking, maintenance, and optimization.">
+    <title>Fleet Services | Flasher Fleet Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy-command: #1B2A4E;
+            --navy-light: #2D4A7C;
+            --heritage-red: #B31B1B;
+            --steel-white: #F5F7FA;
+            --forge-black: #1A1A1A;
+            --chrome-silver: #A8B2BD;
+            --warm-gray: #6B7280;
+            --flasher-yellow: #F5C518;
+            --flasher-gold: #FFD93D;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; color: var(--forge-black); line-height: 1.6; }
+
+        header { background: var(--forge-black); padding: 1rem; position: fixed; width: 100%; top: 0; z-index: 1000; }
+        .header-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo-text { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.8rem; color: var(--flasher-yellow); text-decoration: none; }
+        nav { display: none; }
+        nav.active { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--forge-black); padding: 1rem; }
+        nav a { color: white; text-decoration: none; padding: 0.75rem 1rem; font-family: 'Barlow', sans-serif; font-weight: 500; }
+        nav a:hover { color: var(--flasher-yellow); }
+        .mobile-menu { background: none; border: none; cursor: pointer; padding: 0.5rem; }
+        .mobile-menu span { display: block; width: 25px; height: 3px; background: var(--flasher-yellow); margin: 5px 0; }
+        .header-cta { display: none; }
+        .btn { display: inline-block; padding: 1rem 2rem; font-family: 'Barlow', sans-serif; font-weight: 600; text-decoration: none; border-radius: 4px; transition: all 0.3s; }
+        .btn-primary { background: var(--flasher-yellow); color: var(--forge-black); }
+        .btn-primary:hover { background: var(--flasher-gold); }
+
+        .page-hero { background: linear-gradient(135deg, var(--forge-black) 0%, var(--navy-command) 100%); padding: 140px 1rem 4rem; text-align: center; }
+        .page-hero h1 { font-family: 'Barlow Condensed', sans-serif; font-size: 2.5rem; color: white; margin-bottom: 1rem; }
+        .page-hero h1 span { color: var(--flasher-yellow); }
+        .page-hero p { color: var(--chrome-silver); max-width: 600px; margin: 0 auto; }
+
+        .content { padding: 4rem 1rem; max-width: 1200px; margin: 0 auto; }
+        .content h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 2rem; color: var(--navy-command); margin-bottom: 1rem; }
+        .content p { margin-bottom: 1.5rem; color: var(--warm-gray); }
+
+        .features-grid { display: grid; gap: 2rem; margin: 3rem 0; }
+        .feature-card { background: var(--steel-white); padding: 2rem; border-radius: 8px; border-left: 4px solid var(--flasher-yellow); }
+        .feature-card h3 { font-family: 'Barlow', sans-serif; color: var(--navy-command); margin-bottom: 0.5rem; }
+        .feature-card p { color: var(--warm-gray); margin: 0; }
+
+        .cta-section { background: var(--navy-command); padding: 4rem 1rem; text-align: center; margin-top: 4rem; }
+        .cta-section h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 2rem; color: white; margin-bottom: 1rem; }
+        .cta-section p { color: var(--chrome-silver); margin-bottom: 2rem; }
+
+        footer { background: var(--forge-black); padding: 2rem 1rem; text-align: center; color: var(--chrome-silver); }
+        footer a { color: var(--flasher-yellow); text-decoration: none; }
+
+        @media (min-width: 768px) {
+            nav { display: flex; }
+            .mobile-menu { display: none; }
+            .header-cta { display: block; }
+            .page-hero h1 { font-size: 3.5rem; }
+            .features-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (min-width: 1024px) {
+            .features-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo-text">FLASHER</a>
+            <nav id="nav">
+                <a href="index.html">Home</a>
+                <a href="fleet.html">Fleet</a>
+                <a href="amber.html">Amber</a>
+                <a href="projects.html">Projects</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <a href="contact.html" class="btn btn-primary header-cta">Get Quote</a>
+            <button class="mobile-menu" onclick="document.getElementById('nav').classList.toggle('active')">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <section class="page-hero">
+        <h1><span>Fleet</span> Management Services</h1>
+        <p>Comprehensive solutions to optimize your fleet operations, reduce costs, and maximize vehicle uptime.</p>
+    </section>
+
+    <section class="content">
+        <h2>Complete Fleet Solutions</h2>
+        <p>At Flasher Fleet Solutions, we understand that your fleet is the backbone of your business. Our comprehensive fleet management services are designed to keep your vehicles running efficiently while minimizing downtime and operational costs.</p>
+        <p>Whether you operate a small fleet of service vehicles or manage hundreds of commercial trucks, we have the expertise and technology to help you succeed.</p>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>GPS Tracking</h3>
+                <p>Real-time vehicle tracking with detailed route history, geofencing, and driver behavior monitoring.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Preventive Maintenance</h3>
+                <p>Scheduled maintenance programs that extend vehicle life and prevent costly breakdowns.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Fuel Management</h3>
+                <p>Monitor fuel consumption, identify inefficiencies, and reduce your fuel costs significantly.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Driver Management</h3>
+                <p>Training programs, performance tracking, and compliance monitoring for your drivers.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Vehicle Diagnostics</h3>
+                <p>Real-time engine diagnostics and fault code monitoring to catch issues early.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Reporting & Analytics</h3>
+                <p>Comprehensive dashboards and reports to make data-driven decisions about your fleet.</p>
+            </div>
+        </div>
+
+        <h2>Why Choose Us?</h2>
+        <p>With over 15 years of experience in fleet management, we've helped businesses of all sizes optimize their operations. Our team of certified technicians and fleet specialists work around the clock to ensure your vehicles are always ready to perform.</p>
+        <p>We pride ourselves on responsive service, transparent pricing, and a commitment to your success. When you partner with Flasher Fleet Solutions, you're not just getting a service provider - you're getting a team dedicated to your business goals.</p>
+    </section>
+
+    <section class="cta-section">
+        <h2>Ready to Optimize Your Fleet?</h2>
+        <p>Contact us today for a free fleet assessment and customized proposal.</p>
+        <a href="contact.html" class="btn btn-primary">Get Started</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Flasher Fleet Solutions. All rights reserved.</p>
+        <p><a href="mailto:josh@mingma.io">josh@mingma.io</a> | <a href="tel:6106139551">610-613-9551</a></p>
+    </footer>
+</body>
+</html>

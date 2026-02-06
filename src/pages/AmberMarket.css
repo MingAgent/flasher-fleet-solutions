@@ -1,0 +1,113 @@
+/* ===========================================
+   Amber Market Page Styles
+   =========================================== */
+
+.amber-market-page {
+  overflow-x: hidden;
+}
+
+/* Industries Section */
+.industries-section {
+  background: var(--steel-white);
+}
+
+/* Products Section */
+.products-section {
+  background: white;
+}
+
+.products-grid {
+  gap: var(--space-md);
+}
+
+.product-card {
+  background: var(--steel-white);
+  padding: var(--space-lg);
+  border-radius: var(--radius-md);
+  text-align: center;
+  transition: all var(--transition-base);
+}
+
+.product-card:hover {
+  background: white;
+  box-shadow: var(--shadow-md);
+}
+
+.product-icon {
+  font-size: 2rem;
+  margin-bottom: var(--space-sm);
+}
+
+.product-card h3 {
+  font-family: var(--font-subheading);
+  font-weight: var(--weight-semibold);
+  font-size: 1rem;
+  color: var(--navy-command);
+  margin-bottom: var(--space-xs);
+}
+
+.product-card p {
+  color: var(--chrome-silver);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Fleet Section */
+.fleet-section {
+  background: var(--navy-command);
+}
+
+.fleet-content {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.fleet-content h2 {
+  font-family: var(--font-headline);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  color: white;
+  margin-bottom: var(--space-lg);
+}
+
+.fleet-content > p {
+  color: var(--chrome-silver);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: var(--space-2xl);
+}
+
+.fleet-benefits {
+  display: grid;
+  gap: var(--space-lg);
+  text-align: left;
+}
+
+.benefit {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  padding: var(--space-md);
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--heritage-red);
+}
+
+.benefit strong {
+  color: white;
+  font-family: var(--font-subheading);
+  font-weight: var(--weight-semibold);
+}
+
+.benefit span {
+  color: var(--chrome-silver);
+  font-size: 0.95rem;
+}
+
+/* Desktop */
+@media (min-width: 768px) {
+  .fleet-benefits {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

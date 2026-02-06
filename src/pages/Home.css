@@ -1,0 +1,99 @@
+/* ===========================================
+   Home Page Styles
+   =========================================== */
+
+.home-page {
+  overflow-x: hidden;
+}
+
+/* Services Section */
+.services-section {
+  background: var(--steel-white);
+}
+
+/* Pillars Section */
+.pillars-section {
+  background: white;
+}
+
+.pillars-grid {
+  gap: var(--space-lg);
+}
+
+.pillar-card {
+  text-align: center;
+  padding: var(--space-lg);
+}
+
+.pillar-icon {
+  font-size: 2.5rem;
+  margin-bottom: var(--space-md);
+}
+
+.pillar-card h3 {
+  font-family: var(--font-subheading);
+  font-weight: var(--weight-semibold);
+  font-size: 1.1rem;
+  color: var(--navy-command);
+  margin-bottom: var(--space-sm);
+}
+
+.pillar-card p {
+  color: var(--chrome-silver);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Locations Section */
+.locations-section {
+  background: var(--steel-white);
+}
+
+.locations-grid {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.location-card {
+  background: white;
+  padding: var(--space-xl);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  text-align: center;
+}
+
+.location-card h3 {
+  font-family: var(--font-headline);
+  font-size: 1.5rem;
+  color: var(--navy-command);
+  margin-bottom: var(--space-md);
+}
+
+.location-address {
+  color: var(--chrome-silver);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: var(--space-md);
+}
+
+.location-phone {
+  display: inline-block;
+  font-family: var(--font-subheading);
+  font-weight: var(--weight-semibold);
+  font-size: 1.1rem;
+  color: var(--heritage-red);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.location-phone:hover {
+  color: var(--red-dark);
+}
+
+/* Desktop Breakpoint */
+@media (min-width: 768px) {
+  .pillar-card {
+    padding: var(--space-xl);
+  }
+}

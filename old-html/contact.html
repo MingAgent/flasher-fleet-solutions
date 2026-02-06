@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Flasher Fleet Solutions for fleet management and amber lighting quotes and inquiries.">
+    <title>Contact Us | Flasher Fleet Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy-command: #1B2A4E;
+            --navy-light: #2D4A7C;
+            --heritage-red: #B31B1B;
+            --steel-white: #F5F7FA;
+            --forge-black: #1A1A1A;
+            --chrome-silver: #A8B2BD;
+            --warm-gray: #6B7280;
+            --flasher-yellow: #F5C518;
+            --flasher-gold: #FFD93D;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; color: var(--forge-black); line-height: 1.6; }
+
+        header { background: var(--forge-black); padding: 1rem; position: fixed; width: 100%; top: 0; z-index: 1000; }
+        .header-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo-text { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.8rem; color: var(--flasher-yellow); text-decoration: none; }
+        nav { display: none; }
+        nav.active { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--forge-black); padding: 1rem; }
+        nav a { color: white; text-decoration: none; padding: 0.75rem 1rem; font-family: 'Barlow', sans-serif; font-weight: 500; }
+        nav a:hover { color: var(--flasher-yellow); }
+        .mobile-menu { background: none; border: none; cursor: pointer; padding: 0.5rem; }
+        .mobile-menu span { display: block; width: 25px; height: 3px; background: var(--flasher-yellow); margin: 5px 0; }
+        .header-cta { display: none; }
+        .btn { display: inline-block; padding: 1rem 2rem; font-family: 'Barlow', sans-serif; font-weight: 600; text-decoration: none; border-radius: 4px; transition: all 0.3s; cursor: pointer; border: none; }
+        .btn-primary { background: var(--flasher-yellow); color: var(--forge-black); }
+        .btn-primary:hover { background: var(--flasher-gold); }
+
+        .page-hero { background: linear-gradient(135deg, var(--forge-black) 0%, var(--navy-command) 100%); padding: 140px 1rem 4rem; text-align: center; }
+        .page-hero h1 { font-family: 'Barlow Condensed', sans-serif; font-size: 2.5rem; color: white; margin-bottom: 1rem; }
+        .page-hero h1 span { color: var(--flasher-yellow); }
+        .page-hero p { color: var(--chrome-silver); max-width: 600px; margin: 0 auto; }
+
+        .contact-section { padding: 4rem 1rem; max-width: 1200px; margin: 0 auto; }
+        .contact-grid { display: grid; gap: 3rem; }
+
+        .contact-info { background: var(--steel-white); padding: 2rem; border-radius: 12px; }
+        .contact-info h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 1.75rem; color: var(--navy-command); margin-bottom: 1.5rem; }
+        .contact-item { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.5rem; }
+        .contact-icon { width: 50px; height: 50px; background: var(--flasher-yellow); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1.25rem; }
+        .contact-item h3 { font-family: 'Barlow', sans-serif; color: var(--navy-command); margin-bottom: 0.25rem; font-size: 1rem; }
+        .contact-item p { color: var(--warm-gray); margin: 0; }
+        .contact-item a { color: var(--navy-command); text-decoration: none; font-weight: 500; }
+        .contact-item a:hover { color: var(--flasher-yellow); }
+
+        .hours-box { background: var(--navy-command); padding: 1.5rem; border-radius: 8px; margin-top: 2rem; }
+        .hours-box h3 { color: var(--flasher-yellow); font-family: 'Barlow', sans-serif; margin-bottom: 1rem; }
+        .hours-box p { color: white; margin: 0.5rem 0; font-size: 0.95rem; }
+
+        .contact-form { background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+        .contact-form h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 1.75rem; color: var(--navy-command); margin-bottom: 1.5rem; }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; font-weight: 500; color: var(--navy-command); margin-bottom: 0.5rem; }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 2px solid var(--chrome-silver);
+            border-radius: 6px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--flasher-yellow);
+        }
+        .form-group textarea { min-height: 150px; resize: vertical; }
+        .form-row { display: grid; gap: 1rem; }
+
+        .emergency-banner { background: var(--heritage-red); padding: 2rem 1rem; text-align: center; margin-top: 4rem; }
+        .emergency-banner h2 { font-family: 'Barlow Condensed', sans-serif; color: white; margin-bottom: 0.5rem; }
+        .emergency-banner p { color: rgba(255,255,255,0.9); margin-bottom: 1rem; }
+        .emergency-banner a { color: var(--flasher-yellow); font-size: 1.5rem; font-family: 'Barlow Condensed', sans-serif; text-decoration: none; }
+
+        footer { background: var(--forge-black); padding: 2rem 1rem; text-align: center; color: var(--chrome-silver); }
+        footer a { color: var(--flasher-yellow); text-decoration: none; }
+
+        @media (min-width: 768px) {
+            nav { display: flex; }
+            .mobile-menu { display: none; }
+            .header-cta { display: block; }
+            .page-hero h1 { font-size: 3.5rem; }
+            .contact-grid { grid-template-columns: 1fr 1.5fr; }
+            .form-row { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo-text">FLASHER</a>
+            <nav id="nav">
+                <a href="index.html">Home</a>
+                <a href="fleet.html">Fleet</a>
+                <a href="amber.html">Amber</a>
+                <a href="projects.html">Projects</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <a href="contact.html" class="btn btn-primary header-cta">Get Quote</a>
+            <button class="mobile-menu" onclick="document.getElementById('nav').classList.toggle('active')">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <section class="page-hero">
+        <h1><span>Contact</span> Us</h1>
+        <p>Ready to upgrade your fleet? Get in touch for a free consultation and quote.</p>
+    </section>
+
+    <section class="contact-section">
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h2>Get In Touch</h2>
+
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <div>
+                        <h3>Email</h3>
+                        <p><a href="mailto:josh@mingma.io">josh@mingma.io</a></p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <div>
+                        <h3>Phone</h3>
+                        <p><a href="tel:6106139551">610-613-9551</a></p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div>
+                        <h3>Service Area</h3>
+                        <p>Pennsylvania, New Jersey, Delaware, Maryland</p>
+                    </div>
+                </div>
+
+                <div class="hours-box">
+                    <h3>Business Hours</h3>
+                    <p>Monday - Friday: 7:00 AM - 6:00 PM</p>
+                    <p>Saturday: 8:00 AM - 2:00 PM</p>
+                    <p>Sunday: Closed</p>
+                    <p style="margin-top: 1rem; color: var(--flasher-yellow);">24/7 Emergency Support Available</p>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <h2>Request a Quote</h2>
+                <form action="#" method="POST">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Company Name</label>
+                            <input type="text" id="company" name="company">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="service">Service Interested In</label>
+                        <select id="service" name="service">
+                            <option value="">Select a service...</option>
+                            <option value="fleet-management">Fleet Management</option>
+                            <option value="amber-lighting">Amber Lighting</option>
+                            <option value="vehicle-upfitting">Vehicle Upfitting</option>
+                            <option value="emergency-lighting">Emergency Lighting</option>
+                            <option value="maintenance">Fleet Maintenance</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fleet-size">Fleet Size</label>
+                        <select id="fleet-size" name="fleet-size">
+                            <option value="">Select fleet size...</option>
+                            <option value="1-10">1-10 vehicles</option>
+                            <option value="11-25">11-25 vehicles</option>
+                            <option value="26-50">26-50 vehicles</option>
+                            <option value="51-100">51-100 vehicles</option>
+                            <option value="100+">100+ vehicles</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Project Details</label>
+                        <textarea id="message" name="message" placeholder="Tell us about your fleet, requirements, and timeline..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Request</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="emergency-banner">
+        <h2>24/7 Emergency Support</h2>
+        <p>Need urgent assistance? Our emergency team is available around the clock.</p>
+        <a href="tel:6106139551">📞 610-613-9551</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Flasher Fleet Solutions. All rights reserved.</p>
+        <p><a href="mailto:josh@mingma.io">josh@mingma.io</a> | <a href="tel:6106139551">610-613-9551</a></p>
+    </footer>
+</body>
+</html>

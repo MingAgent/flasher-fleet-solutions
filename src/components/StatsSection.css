@@ -1,0 +1,53 @@
+/* ===========================================
+   Stats Section Component Styles
+   =========================================== */
+
+.stats-section {
+  background: var(--navy-command);
+  padding: var(--space-2xl) var(--space-md);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-xl);
+  text-align: center;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-value {
+  font-family: var(--font-headline);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: var(--weight-bold);
+  color: var(--heritage-red);
+  line-height: 1;
+  margin-bottom: var(--space-xs);
+}
+
+.stat-label {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--chrome-silver);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Tablet Breakpoint */
+@media (min-width: 768px) {
+  .stats-section {
+    padding: var(--space-3xl) var(--space-xl);
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .stat-label {
+    font-size: 0.85rem;
+  }
+}
