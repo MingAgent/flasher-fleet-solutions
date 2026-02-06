@@ -1,0 +1,92 @@
+/* ===========================================
+   Service Card Component Styles
+   =========================================== */
+
+.service-card {
+  background: white;
+  padding: var(--space-xl);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-base);
+  display: flex;
+  flex-direction: column;
+}
+
+.service-card-link-wrapper {
+  text-decoration: none;
+  color: inherit;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.service-card-icon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--navy-command) 0%, var(--navy-light) 100%);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-md);
+  font-size: 1.5rem;
+  color: white;
+}
+
+.service-card-title {
+  font-family: var(--font-subheading);
+  font-weight: var(--weight-semibold);
+  font-size: 1.25rem;
+  color: var(--navy-command);
+  margin-bottom: var(--space-sm);
+}
+
+.service-card-description {
+  color: var(--chrome-silver);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  flex-grow: 1;
+  margin-bottom: var(--space-md);
+}
+
+.service-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  color: var(--heritage-red);
+  font-family: var(--font-subheading);
+  font-weight: var(--weight-medium);
+  font-size: 0.9rem;
+  transition: gap var(--transition-fast);
+}
+
+.service-card:hover .service-card-link {
+  gap: var(--space-sm);
+}
+
+.service-card-link svg {
+  transition: transform var(--transition-fast);
+}
+
+.service-card:hover .service-card-link svg {
+  transform: translateX(4px);
+}
+
+/* Dark variant for use on light backgrounds */
+.service-card-dark {
+  background: var(--navy-command);
+}
+
+.service-card-dark .service-card-icon {
+  background: linear-gradient(135deg, var(--heritage-red) 0%, var(--red-dark) 100%);
+}
+
+.service-card-dark .service-card-title {
+  color: white;
+}
+
+.service-card-dark .service-card-description {
+  color: var(--chrome-silver);
+}

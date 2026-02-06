@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Flasher Fleet Solutions - Professional amber lighting, LED warning systems, and emergency vehicle lighting installations.">
+    <title>Amber Lighting | Flasher Fleet Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy-command: #1B2A4E;
+            --navy-light: #2D4A7C;
+            --heritage-red: #B31B1B;
+            --steel-white: #F5F7FA;
+            --forge-black: #1A1A1A;
+            --chrome-silver: #A8B2BD;
+            --warm-gray: #6B7280;
+            --flasher-yellow: #F5C518;
+            --flasher-gold: #FFD93D;
+            --amber: #FFBF00;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; color: var(--forge-black); line-height: 1.6; }
+
+        header { background: var(--forge-black); padding: 1rem; position: fixed; width: 100%; top: 0; z-index: 1000; }
+        .header-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo-text { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.8rem; color: var(--flasher-yellow); text-decoration: none; }
+        nav { display: none; }
+        nav.active { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--forge-black); padding: 1rem; }
+        nav a { color: white; text-decoration: none; padding: 0.75rem 1rem; font-family: 'Barlow', sans-serif; font-weight: 500; }
+        nav a:hover { color: var(--flasher-yellow); }
+        .mobile-menu { background: none; border: none; cursor: pointer; padding: 0.5rem; }
+        .mobile-menu span { display: block; width: 25px; height: 3px; background: var(--flasher-yellow); margin: 5px 0; }
+        .header-cta { display: none; }
+        .btn { display: inline-block; padding: 1rem 2rem; font-family: 'Barlow', sans-serif; font-weight: 600; text-decoration: none; border-radius: 4px; transition: all 0.3s; }
+        .btn-primary { background: var(--flasher-yellow); color: var(--forge-black); }
+        .btn-primary:hover { background: var(--flasher-gold); }
+
+        .page-hero { background: linear-gradient(135deg, var(--forge-black) 0%, #3D2800 50%, var(--forge-black) 100%); padding: 140px 1rem 4rem; text-align: center; position: relative; overflow: hidden; }
+        .page-hero::before { content: ''; position: absolute; top: 50%; left: 50%; width: 200px; height: 200px; background: var(--amber); border-radius: 50%; filter: blur(100px); transform: translate(-50%, -50%); opacity: 0.3; animation: pulse 2s ease-in-out infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); } 50% { opacity: 0.5; transform: translate(-50%, -50%) scale(1.1); } }
+        .page-hero h1 { font-family: 'Barlow Condensed', sans-serif; font-size: 2.5rem; color: white; margin-bottom: 1rem; position: relative; }
+        .page-hero h1 span { color: var(--amber); }
+        .page-hero p { color: var(--chrome-silver); max-width: 600px; margin: 0 auto; position: relative; }
+
+        .content { padding: 4rem 1rem; max-width: 1200px; margin: 0 auto; }
+        .content h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 2rem; color: var(--navy-command); margin-bottom: 1rem; }
+        .content p { margin-bottom: 1.5rem; color: var(--warm-gray); }
+
+        .products-grid { display: grid; gap: 2rem; margin: 3rem 0; }
+        .product-card { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.3s; }
+        .product-card:hover { transform: translateY(-5px); }
+        .product-image { height: 200px; background: linear-gradient(135deg, var(--forge-black), var(--navy-command)); display: flex; align-items: center; justify-content: center; }
+        .product-icon { font-size: 4rem; }
+        .product-content { padding: 1.5rem; }
+        .product-card h3 { font-family: 'Barlow', sans-serif; color: var(--navy-command); margin-bottom: 0.5rem; }
+        .product-card p { color: var(--warm-gray); font-size: 0.95rem; margin: 0; }
+
+        .benefits { background: var(--steel-white); padding: 4rem 1rem; margin-top: 2rem; }
+        .benefits-container { max-width: 1200px; margin: 0 auto; }
+        .benefits h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 2rem; color: var(--navy-command); text-align: center; margin-bottom: 2rem; }
+        .benefits-grid { display: grid; gap: 1.5rem; }
+        .benefit-item { display: flex; align-items: flex-start; gap: 1rem; }
+        .benefit-icon { width: 50px; height: 50px; background: var(--amber); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1.5rem; }
+        .benefit-item h4 { font-family: 'Barlow', sans-serif; color: var(--navy-command); margin-bottom: 0.25rem; }
+        .benefit-item p { color: var(--warm-gray); font-size: 0.9rem; margin: 0; }
+
+        .cta-section { background: var(--navy-command); padding: 4rem 1rem; text-align: center; }
+        .cta-section h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 2rem; color: white; margin-bottom: 1rem; }
+        .cta-section p { color: var(--chrome-silver); margin-bottom: 2rem; }
+
+        footer { background: var(--forge-black); padding: 2rem 1rem; text-align: center; color: var(--chrome-silver); }
+        footer a { color: var(--flasher-yellow); text-decoration: none; }
+
+        @media (min-width: 768px) {
+            nav { display: flex; }
+            .mobile-menu { display: none; }
+            .header-cta { display: block; }
+            .page-hero h1 { font-size: 3.5rem; }
+            .products-grid { grid-template-columns: repeat(2, 1fr); }
+            .benefits-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (min-width: 1024px) {
+            .products-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo-text">FLASHER</a>
+            <nav id="nav">
+                <a href="index.html">Home</a>
+                <a href="fleet.html">Fleet</a>
+                <a href="amber.html">Amber</a>
+                <a href="projects.html">Projects</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <a href="contact.html" class="btn btn-primary header-cta">Get Quote</a>
+            <button class="mobile-menu" onclick="document.getElementById('nav').classList.toggle('active')">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <section class="page-hero">
+        <h1><span>Amber</span> Lighting Solutions</h1>
+        <p>Professional-grade amber warning lights, LED systems, and emergency lighting for all vehicle applications.</p>
+    </section>
+
+    <section class="content">
+        <h2>Industry-Leading Amber Lighting</h2>
+        <p>Visibility saves lives. Our amber lighting solutions are designed to meet the highest standards of safety and durability, ensuring your vehicles are seen in any condition - day or night, rain or shine.</p>
+        <p>From construction vehicles to service trucks, tow trucks to utility fleets, we provide complete amber lighting packages tailored to your specific needs and regulatory requirements.</p>
+
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image"><span class="product-icon">🚨</span></div>
+                <div class="product-content">
+                    <h3>LED Light Bars</h3>
+                    <p>Full-size and mini LED light bars with multiple flash patterns and high-intensity output for maximum visibility.</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image"><span class="product-icon">💡</span></div>
+                <div class="product-content">
+                    <h3>Beacon Lights</h3>
+                    <p>Rotating and strobe beacon lights for roof mounting, magnetic mount, and permanent installations.</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image"><span class="product-icon">⚡</span></div>
+                <div class="product-content">
+                    <h3>Strobe Kits</h3>
+                    <p>Hide-away strobe systems, surface mount strobes, and grille lights for covert emergency lighting.</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image"><span class="product-icon">🔶</span></div>
+                <div class="product-content">
+                    <h3>Arrow Boards</h3>
+                    <p>Truck-mounted and trailer-mounted arrow boards for traffic direction and work zone safety.</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image"><span class="product-icon">🚧</span></div>
+                <div class="product-content">
+                    <h3>Work Lights</h3>
+                    <p>High-output LED work lights and scene lighting for night operations and emergency response.</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image"><span class="product-icon">🔌</span></div>
+                <div class="product-content">
+                    <h3>Control Systems</h3>
+                    <p>Switch panels, controllers, and wiring harnesses for integrated lighting system management.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="benefits">
+        <div class="benefits-container">
+            <h2>Why Choose Our Amber Lighting?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">✓</div>
+                    <div>
+                        <h4>SAE/DOT Certified</h4>
+                        <p>All products meet or exceed industry safety standards and regulations.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">✓</div>
+                    <div>
+                        <h4>Professional Installation</h4>
+                        <p>Expert installation by certified technicians with warranty coverage.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">✓</div>
+                    <div>
+                        <h4>LED Technology</h4>
+                        <p>Energy-efficient LEDs with longer life and brighter output than traditional bulbs.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">✓</div>
+                    <div>
+                        <h4>Weather Resistant</h4>
+                        <p>IP67+ rated products built to withstand harsh conditions and heavy use.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <h2>Light Up Your Fleet</h2>
+        <p>Get a free consultation and quote on amber lighting for your vehicles.</p>
+        <a href="contact.html" class="btn btn-primary">Request Quote</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Flasher Fleet Solutions. All rights reserved.</p>
+        <p><a href="mailto:josh@mingma.io">josh@mingma.io</a> | <a href="tel:6106139551">610-613-9551</a></p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,106 @@
+/* ===========================================
+   About Page Styles
+   =========================================== */
+
+.about-page {
+  overflow-x: hidden;
+}
+
+/* Story Section */
+.story-section {
+  background: var(--steel-white);
+}
+
+.story-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.story-content h2 {
+  font-family: var(--font-headline);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  color: var(--navy-command);
+  margin-bottom: var(--space-lg);
+}
+
+.story-content p {
+  color: var(--warm-gray);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-bottom: var(--space-md);
+}
+
+/* Values Section */
+.values-section {
+  background: white;
+}
+
+.values-grid {
+  display: grid;
+  gap: var(--space-lg);
+}
+
+.value-card {
+  padding: var(--space-lg);
+  border-left: 3px solid var(--heritage-red);
+  background: var(--steel-white);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+.value-icon {
+  font-size: 2rem;
+  margin-bottom: var(--space-sm);
+}
+
+.value-card h3 {
+  font-family: var(--font-subheading);
+  font-weight: var(--weight-semibold);
+  font-size: 1.1rem;
+  color: var(--navy-command);
+  margin-bottom: var(--space-xs);
+}
+
+.value-card p {
+  color: var(--chrome-silver);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Vendor Section */
+.vendor-section {
+  background: var(--navy-command);
+}
+
+.vendor-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.vendor-content h2 {
+  font-family: var(--font-headline);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  color: white;
+  margin-bottom: var(--space-lg);
+}
+
+.vendor-content p {
+  color: var(--chrome-silver);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-bottom: var(--space-md);
+}
+
+/* Desktop */
+@media (min-width: 768px) {
+  .values-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .values-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
