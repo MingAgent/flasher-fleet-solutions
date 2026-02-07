@@ -44,7 +44,7 @@ function About() {
         title="About"
         highlight="Flasher Fleet Solutions"
         subtitle="An experienced team with decades of combined expertise, delivering premium vehicle upfitting across Texas."
-        backgroundImage="/images/hero/about-hero.jpg"
+        backgroundImage="/flasher-fleet-solutions/images/hero/about-hero.jpg"
         compact
       />
 

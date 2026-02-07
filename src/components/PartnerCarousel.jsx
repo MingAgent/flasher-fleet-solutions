@@ -3,15 +3,15 @@ import './PartnerCarousel.css'
 
 // Partner data with actual logo files
 const partners = [
-  { name: 'Feniex', logo: '/images/partners/feniex.webp' },
-  { name: 'Whelen', logo: '/images/partners/whelen.jpg' },
-  { name: 'Federal Signal', logo: '/images/partners/federal-signal.jpg' },
-  { name: 'SoundOff Signal', logo: '/images/partners/soundoff-signal.png' },
-  { name: 'Code 3', logo: '/images/partners/code3.png' },
-  { name: 'Setina', logo: '/images/partners/setina.png' },
-  { name: 'Jotto Desk', logo: '/images/partners/jotto-desk.webp' },
-  { name: 'Havis', logo: '/images/partners/havis.png' },
-  { name: 'Troy Products', logo: '/images/partners/troy-products.webp' },
+  { name: 'Feniex', logo: '/flasher-fleet-solutions/images/partners/feniex.webp' },
+  { name: 'Whelen', logo: '/flasher-fleet-solutions/images/partners/whelen.jpg' },
+  { name: 'Federal Signal', logo: '/flasher-fleet-solutions/images/partners/federal-signal.jpg' },
+  { name: 'SoundOff Signal', logo: '/flasher-fleet-solutions/images/partners/soundoff-signal.png' },
+  { name: 'Code 3', logo: '/flasher-fleet-solutions/images/partners/code3.png' },
+  { name: 'Setina', logo: '/flasher-fleet-solutions/images/partners/setina.png' },
+  { name: 'Jotto Desk', logo: '/flasher-fleet-solutions/images/partners/jotto-desk.webp' },
+  { name: 'Havis', logo: '/flasher-fleet-solutions/images/partners/havis.png' },
+  { name: 'Troy Products', logo: '/flasher-fleet-solutions/images/partners/troy-products.webp' },
 ]
 
 function PartnerCarousel() {
