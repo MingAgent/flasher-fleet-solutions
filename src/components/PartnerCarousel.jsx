@@ -3,9 +3,9 @@ import './PartnerCarousel.css'
 
 // Partner data with actual logo files
 const partners = [
-  { name: 'Feniex', logo: '/flasher-fleet-solutions/images/partners/feniex.png' },
+  { name: 'Feniex', logo: '/flasher-fleet-solutions/images/partners/feniex.webp' },
   { name: 'Whelen', logo: '/flasher-fleet-solutions/images/partners/whelen.jpg' },
-  { name: 'Federal Signal', logo: '/flasher-fleet-solutions/images/partners/federal-signal.png' },
+  { name: 'Federal Signal', logo: '/flasher-fleet-solutions/images/partners/federal-signal.jpg' },
   { name: 'SoundOff Signal', logo: '/flasher-fleet-solutions/images/partners/soundoff-signal.png' },
   { name: 'Code 3', logo: '/flasher-fleet-solutions/images/partners/code3.png' },
   { name: 'Setina', logo: '/flasher-fleet-solutions/images/partners/setina.png' },
