@@ -56,7 +56,7 @@ function LawEnforcement() {
         subtitle="Complete patrol vehicle solutions built to your department's specifications. From lightbars to prisoner transport, we deliver quality you can depend on."
         primaryCta="Request Quote"
         primaryCtaLink="/contact"
-        backgroundImage="/flasher-fleet-solutions/images/hero/law-enforcement-hero.jpg"
+        backgroundImage="/images/hero/law-enforcement-hero.jpg"
         compact
       />
 
