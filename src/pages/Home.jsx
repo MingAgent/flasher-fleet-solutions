@@ -60,6 +60,11 @@ function Home() {
         backgroundImage="/images/hero/home-hero.jpg"
         videos={[
           '/videos/hero-main.mp4',
+          '/videos/hero-law-enforcement.mp4',
+          '/videos/hero-amber.mp4',
+          '/videos/hero-craftsmanship.mp4',
+          '/videos/hero-showcase.mp4',
+          '/videos/hero-video.mp4',
         ]}
       />
 
