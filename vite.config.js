@@ -4,7 +4,6 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  // For GitHub Pages deployment
-  // Change to '/' when using custom domain (flasherfleetsolutions.com)
-  base: '/flasher-fleet-solutions/',
+  // Using custom domain (flasherfleetsolutions.com)
+  base: '/',
 })

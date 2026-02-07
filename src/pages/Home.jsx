@@ -12,19 +12,19 @@ function Home() {
       title: 'Law Enforcement',
       description: 'Complete patrol vehicle upfitting with lightbars, sirens, consoles, prisoner partitions, and more. Built to department specifications.',
       link: '/law-enforcement',
-      image: '/flasher-fleet-solutions/images/services/law-enforcement.jpg',
+      image: '/images/services/law-enforcement.jpg',
     },
     {
       title: 'Amber Market',
       description: 'Professional amber lighting and safety equipment for DOT, construction, tow/recovery, and utility fleets.',
       link: '/amber-market',
-      image: '/flasher-fleet-solutions/images/services/amber-market.jpg',
+      image: '/images/services/amber-market.jpg',
     },
     {
       title: 'Custom Upfitting',
       description: 'Tailored vehicle modifications to meet your exact operational requirements. From concept to completion.',
       link: '/portfolio',
-      image: '/flasher-fleet-solutions/images/services/custom-upfitting.jpg',
+      image: '/images/services/custom-upfitting.jpg',
     },
   ]
 
@@ -57,12 +57,9 @@ function Home() {
         primaryCtaLink="/contact"
         secondaryCta="View Our Work"
         secondaryCtaLink="/portfolio"
-        backgroundImage="/flasher-fleet-solutions/images/hero/home-hero.jpg"
+        backgroundImage="/images/hero/home-hero.jpg"
         videos={[
-          '/flasher-fleet-solutions/videos/hero-law-enforcement.mp4',
-          '/flasher-fleet-solutions/videos/hero-amber.mp4',
-          '/flasher-fleet-solutions/videos/hero-craftsmanship.mp4',
-          '/flasher-fleet-solutions/videos/hero-showcase.mp4',
+          '/videos/hero-main.mp4',
         ]}
       />
 
