@@ -1,10 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60">
-  <defs>
-    <linearGradient id="whelenGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#00529B"/>
-      <stop offset="100%" style="stop-color:#003366"/>
-    </linearGradient>
-  </defs>
-  <rect x="0" y="15" width="6" height="30" fill="url(#whelenGrad)"/>
-  <text x="16" y="40" font-family="Arial, sans-serif" font-weight="bold" font-size="26" fill="#FFFFFF" letter-spacing="1">WHELEN</text>
+  <rect x="0" y="0" width="200" height="60" fill="#1a1a1a" rx="4"/>
+  <rect x="0" y="0" width="5" height="60" fill="#00529B"/>
+  <text x="100" y="38" font-family="Arial, sans-serif" font-weight="bold" font-size="22" fill="#00529B" text-anchor="middle">WHELEN</text>
 </svg>
