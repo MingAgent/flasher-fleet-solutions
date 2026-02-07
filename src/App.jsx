@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom'
 // Layout Components
 import Header from './components/Header'
 import Footer from './components/Footer'
+import CookieConsent from './components/CookieConsent'
 
 // Page Components
 import Home from './pages/Home'
@@ -31,6 +32,7 @@ function App() {
         </Routes>
       </main>
       <Footer />
+      <CookieConsent />
     </div>
   )
 }
