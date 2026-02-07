@@ -65,7 +65,7 @@ function AmberMarket() {
         subtitle="Professional-grade amber lighting and safety equipment for DOT, construction, tow/recovery, utilities, and commercial fleets."
         primaryCta="Get Fleet Quote"
         primaryCtaLink="/contact"
-        backgroundImage="/flasher-fleet-solutions/images/hero/amber-hero.jpg"
+        backgroundImage="/images/hero/amber-hero.jpg"
         compact
       />
 

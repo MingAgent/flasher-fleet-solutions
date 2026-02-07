@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mingagent.github.io/flasher-fleet-solutions/sitemap.xml
+Sitemap: https://www.flasher-fleet-solutions.com/sitemap.xml
