@@ -1,0 +1,116 @@
+/* ===========================================
+   Cookie Consent Banner - MOBILE FIRST
+   Fixed to bottom of viewport
+   =========================================== */
+
+.cookie-consent {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: var(--space-md);
+  animation: slideUp 0.4s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.cookie-consent-inner {
+  max-width: var(--container-xl);
+  margin: 0 auto;
+  background: var(--forge-black);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  box-shadow: var(--shadow-xl);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.cookie-consent-text {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  color: var(--chrome-silver);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.cookie-consent-text a {
+  color: white;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.cookie-consent-text a:hover {
+  color: var(--heritage-red);
+}
+
+.cookie-consent-buttons {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.cookie-btn {
+  font-family: var(--font-subheading);
+  font-size: 0.875rem;
+  font-weight: var(--weight-semibold);
+  padding: 0.5rem 1.25rem;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.cookie-btn-reject {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: var(--chrome-silver);
+}
+
+.cookie-btn-reject:hover {
+  border-color: rgba(255, 255, 255, 0.5);
+  color: white;
+}
+
+.cookie-btn-accept {
+  background: var(--heritage-red);
+  color: white;
+}
+
+.cookie-btn-accept:hover {
+  background: var(--red-dark);
+}
+
+/* =========================================
+   TABLET+ (768px)
+   ========================================= */
+@media (min-width: 768px) {
+  .cookie-consent-inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-md) var(--space-lg);
+  }
+
+  .cookie-consent-text {
+    flex: 1;
+    margin-right: var(--space-lg);
+  }
+
+  .cookie-consent-buttons {
+    flex-shrink: 0;
+  }
+}
