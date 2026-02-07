@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 100">
+  <!-- Red base -->
+  <rect x="15" y="55" width="40" height="30" rx="3" fill="#CC2B2B"/>
+  <rect x="12" y="50" width="46" height="10" rx="2" fill="#CC2B2B"/>
+  <!-- Yellow light -->
+  <circle cx="35" cy="35" r="20" fill="#F5C518"/>
+  <circle cx="35" cy="35" r="15" fill="#FFD93D" opacity="0.7"/>
+  <ellipse cx="30" cy="30" rx="5" ry="3" fill="#FFFFFF" opacity="0.4"/>
+  <!-- FLASHER text - YELLOW -->
+  <text x="70" y="55" font-family="Arial Black, Arial, sans-serif" font-size="42" font-weight="900" fill="#F5C518">FLASHER</text>
+  <!-- Fleet Solutions text - WHITE -->
+  <text x="70" y="85" font-family="Arial, sans-serif" font-size="22" font-weight="400" fill="#FFFFFF">Fleet Solutions</text>
+</svg>
