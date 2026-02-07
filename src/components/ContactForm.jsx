@@ -119,10 +119,28 @@ function ContactForm() {
 
     setSubmitStatus('sending')
 
-    // Simulate form submission
-    // In production, replace with actual API call
+    // n8n Webhook URL for Pipedrive integration
+    const WEBHOOK_URL = 'https://mingma-dev.app.n8n.cloud/webhook/flasher-fleet-contact'
+
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1500))
+      const response = await fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          fullName: `${formData.firstName} ${formData.lastName}`,
+          source: 'Website Contact Form',
+          submittedAt: new Date().toISOString(),
+          pageUrl: window.location.href,
+        }),
+      })
+
+      if (!response.ok) {
+        throw new Error('Webhook submission failed')
+      }
+
       setSubmitStatus('success')
       setFormData({
         firstName: '',
@@ -134,7 +152,8 @@ function ContactForm() {
         fleetSize: '',
         message: '',
       })
-    } catch {
+    } catch (error) {
+      console.error('Form submission error:', error)
       setSubmitStatus('error')
     }
   }
