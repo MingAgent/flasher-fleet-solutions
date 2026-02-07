@@ -1,17 +1,16 @@
 import { useEffect, useRef } from 'react'
 import './PartnerCarousel.css'
 
-// Partner data - logos can be added when available
-// Set logo: null to use styled text fallback
+// Partner data - SVG logos with brand colors
 const partners = [
-  { name: 'Feniex', logo: null, accent: '#E31837' },
-  { name: 'Whelen', logo: null, accent: '#00529B' },
-  { name: 'Federal Signal', logo: null, accent: '#1C3F6E' },
-  { name: 'SoundOff Signal', logo: null, accent: '#F15A24' },
-  { name: 'Code 3', logo: null, accent: '#CE1126' },
-  { name: 'Setina', logo: null, accent: '#004B87' },
-  { name: 'Jotto Desk', logo: null, accent: '#2B5797' },
-  { name: 'Havis', logo: null, accent: '#E4002B' },
+  { name: 'Feniex', logo: '/flasher-fleet-solutions/images/partners/feniex.svg', accent: '#E31837' },
+  { name: 'Whelen', logo: '/flasher-fleet-solutions/images/partners/whelen.svg', accent: '#00529B' },
+  { name: 'Federal Signal', logo: '/flasher-fleet-solutions/images/partners/federal-signal.svg', accent: '#1C3F6E' },
+  { name: 'SoundOff Signal', logo: '/flasher-fleet-solutions/images/partners/soundoff-signal.svg', accent: '#F15A24' },
+  { name: 'Code 3', logo: '/flasher-fleet-solutions/images/partners/code3.svg', accent: '#CE1126' },
+  { name: 'Setina', logo: '/flasher-fleet-solutions/images/partners/setina.svg', accent: '#004B87' },
+  { name: 'Jotto Desk', logo: '/flasher-fleet-solutions/images/partners/jotto-desk.svg', accent: '#2B5797' },
+  { name: 'Havis', logo: '/flasher-fleet-solutions/images/partners/havis.svg', accent: '#E4002B' },
 ]
 
 function PartnerCarousel() {
