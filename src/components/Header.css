@@ -1,5 +1,5 @@
 /* ===========================================
-   Header Component Styles
+   Header Component - MOBILE FIRST
    =========================================== */
 
 .header {
@@ -9,7 +9,7 @@
   left: 0;
   right: 0;
   z-index: var(--z-fixed);
-  padding: var(--space-md);
+  padding: var(--space-sm) var(--space-md);
 }
 
 .header-container {
@@ -24,24 +24,27 @@
 .logo {
   display: flex;
   align-items: center;
+  z-index: 10;
 }
 
 .logo-img {
-  height: 50px;
+  height: 40px;
   width: auto;
 }
 
-/* Navigation */
+/* Navigation - Hidden on mobile by default */
 .nav {
   display: none;
-  position: absolute;
-  top: 100%;
+  position: fixed;
+  top: 0;
   left: 0;
   right: 0;
+  bottom: 0;
   background: var(--forge-black);
   flex-direction: column;
-  padding: var(--space-md);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  justify-content: center;
+  align-items: center;
+  padding: var(--space-xl);
 }
 
 .nav-open {
@@ -51,10 +54,10 @@
 .nav a {
   color: white;
   text-decoration: none;
-  padding: var(--space-sm) var(--space-md);
+  padding: var(--space-md);
   font-family: var(--font-subheading);
   font-weight: var(--weight-medium);
-  font-size: 1rem;
+  font-size: 1.25rem;
   transition: color var(--transition-fast);
   border-radius: var(--radius-sm);
 }
@@ -64,11 +67,9 @@
   color: var(--heritage-red);
 }
 
-/* Header CTA Button */
+/* Header CTA - Hidden on mobile */
 .header-cta {
   display: none;
-  padding: var(--space-sm) var(--space-lg);
-  font-size: 0.9rem;
 }
 
 /* Mobile Menu Button */
@@ -83,6 +84,7 @@
   cursor: pointer;
   padding: var(--space-sm);
   z-index: 10;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .mobile-menu-btn span {
@@ -106,19 +108,31 @@
   transform: rotate(-45deg) translate(6px, -6px);
 }
 
-/* Tablet Breakpoint */
+/* =========================================
+   TABLET BREAKPOINT (768px+)
+   ========================================= */
 @media (min-width: 768px) {
+  .header {
+    padding: var(--space-md);
+  }
+  
+  .logo-img {
+    height: 50px;
+  }
+  
   .nav {
     display: flex;
     position: static;
     flex-direction: row;
-    padding: 0;
-    border-top: none;
     background: transparent;
+    padding: 0;
+    justify-content: flex-start;
+    align-items: center;
   }
 
   .nav a {
     padding: var(--space-sm) var(--space-md);
+    font-size: 0.9rem;
   }
 
   .mobile-menu-btn {
@@ -127,12 +141,18 @@
 
   .header-cta {
     display: inline-flex;
+    padding: var(--space-sm) var(--space-lg);
+    font-size: 0.9rem;
+    width: auto;
   }
 }
 
-/* Desktop Breakpoint */
+/* =========================================
+   DESKTOP BREAKPOINT (1024px+)
+   ========================================= */
 @media (min-width: 1024px) {
   .nav a {
     padding: var(--space-sm) var(--space-lg);
+    font-size: 1rem;
   }
 }

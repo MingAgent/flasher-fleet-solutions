@@ -1,13 +1,14 @@
 /* ===========================================
-   Hero Component Styles
+   Hero Component - MOBILE FIRST
    =========================================== */
 
 .hero {
   position: relative;
   min-height: 100vh;
+  min-height: 100dvh; /* Dynamic viewport height for mobile */
   display: flex;
   align-items: center;
-  padding: calc(80px + var(--space-3xl)) var(--space-md) var(--space-3xl);
+  padding: calc(70px + var(--space-xl)) var(--space-md) var(--space-xl);
   background: linear-gradient(135deg, var(--forge-black) 0%, var(--navy-command) 100%);
   background-size: cover;
   background-position: center;
@@ -15,8 +16,8 @@
 }
 
 .hero-compact {
-  min-height: 50vh;
-  padding: calc(80px + var(--space-2xl)) var(--space-md) var(--space-2xl);
+  min-height: 60vh;
+  min-height: 60dvh;
 }
 
 .hero-overlay {
@@ -29,7 +30,6 @@
   z-index: 1;
 }
 
-/* Pattern overlay for visual interest */
 .hero::before {
   content: '';
   position: absolute;
@@ -48,11 +48,12 @@
   position: relative;
   z-index: 3;
   max-width: var(--container-xl);
+  width: 100%;
 }
 
 .hero-title {
   font-family: var(--font-headline);
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-size: 2rem;
   font-weight: var(--weight-bold);
   color: white;
   line-height: 1.1;
@@ -65,39 +66,71 @@
 }
 
 .hero-subtitle {
-  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-size: 1rem;
   color: var(--chrome-silver);
   max-width: 600px;
   line-height: 1.7;
-  margin-bottom: var(--space-xl);
+  margin-bottom: var(--space-lg);
 }
 
 .hero-buttons {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: var(--space-md);
 }
 
-/* Compact hero specific */
-.hero-compact .hero-title {
-  font-size: clamp(2rem, 5vw, 3.5rem);
+.hero-buttons .btn {
+  width: 100%;
 }
 
-.hero-compact .hero-subtitle {
-  margin-bottom: var(--space-md);
-}
-
-/* Desktop Breakpoint */
+/* =========================================
+   TABLET BREAKPOINT (768px+)
+   ========================================= */
 @media (min-width: 768px) {
   .hero {
-    padding: calc(80px + var(--space-4xl)) var(--space-xl) var(--space-4xl);
+    padding: calc(80px + var(--space-3xl)) var(--space-xl) var(--space-3xl);
   }
 
   .hero-compact {
-    padding: calc(80px + var(--space-3xl)) var(--space-xl) var(--space-3xl);
+    min-height: 50vh;
+    padding: calc(80px + var(--space-2xl)) var(--space-xl) var(--space-2xl);
+  }
+
+  .hero-title {
+    font-size: 3rem;
   }
 
   .hero-highlight {
     display: inline;
+  }
+
+  .hero-subtitle {
+    font-size: 1.125rem;
+  }
+
+  .hero-buttons {
+    flex-direction: row;
+  }
+
+  .hero-buttons .btn {
+    width: auto;
+  }
+}
+
+/* =========================================
+   DESKTOP BREAKPOINT (1024px+)
+   ========================================= */
+@media (min-width: 1024px) {
+  .hero {
+    padding: calc(80px + var(--space-4xl)) var(--space-xl) var(--space-4xl);
+  }
+
+  .hero-title {
+    font-size: 4rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+    margin-bottom: var(--space-xl);
   }
 }

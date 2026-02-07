@@ -18,7 +18,7 @@ function Header() {
       <div className="header-container">
         <Link to="/" className="logo" onClick={closeMenu}>
           <img
-            src="/flasher-logo.svg"
+            src={`${import.meta.env.BASE_URL}flasher-logo.svg`}
             alt="Flasher Fleet Solutions"
             className="logo-img"
           />

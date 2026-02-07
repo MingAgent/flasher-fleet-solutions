@@ -2,7 +2,7 @@ import './StatsSection.css'
 
 const defaultStats = [
   { value: '68+', label: 'Years Combined Experience' },
-  { value: '500+', label: 'Vehicles Outfitted' },
+  { value: '2', label: 'Texas Locations' },
   { value: '24/7', label: 'Customer Support' },
   { value: '100%', label: 'Satisfaction Guaranteed' },
 ]

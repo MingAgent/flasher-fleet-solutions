@@ -9,19 +9,16 @@ import './Home.css'
 function Home() {
   const services = [
     {
-      icon: '🚔',
       title: 'Law Enforcement',
       description: 'Complete patrol vehicle upfitting with lightbars, sirens, consoles, prisoner partitions, and more. Built to department specifications.',
       link: '/law-enforcement',
     },
     {
-      icon: '🚧',
       title: 'Amber Market',
       description: 'Professional amber lighting and safety equipment for DOT, construction, tow/recovery, and utility fleets.',
       link: '/amber-market',
     },
     {
-      icon: '🔧',
       title: 'Custom Upfitting',
       description: 'Tailored vehicle modifications to meet your exact operational requirements. From concept to completion.',
       link: '/portfolio',
@@ -30,24 +27,20 @@ function Home() {
 
   const pillars = [
     {
-      icon: '🏆',
       title: 'Premium Workmanship',
-      description: 'Every install meets the highest standards. Our veteran-owned team brings military precision to every project.',
+      description: 'Every install meets the highest standards. Our experienced team brings precision and attention to detail to every project.',
     },
     {
-      icon: '⚡',
       title: 'Speed to Delivery',
       description: 'We understand downtime costs money. Our streamlined processes get your vehicles back on the road faster.',
     },
     {
-      icon: '🛡️',
       title: 'Reliability',
       description: 'Equipment that works when you need it most. We stand behind our installations with comprehensive warranties.',
     },
     {
-      icon: '🤝',
       title: 'Trust',
-      description: 'Over 68 years combined industry experience. We\'ve built our reputation on doing the job right, every time.',
+      description: 'Over 68 years combined industry experience. We have built our reputation on doing the job right, every time.',
     },
   ]
 
@@ -56,19 +49,19 @@ function Home() {
       <Hero
         title="Professional Vehicle Upfitting"
         highlight="Built for the Mission"
-        subtitle="Premium workmanship, cutting-edge technology, and innovative solutions for law enforcement, fire/EMS, DOT, and commercial fleets across Texas."
+        subtitle="Premium workmanship, cutting-edge technology, and innovative solutions for law enforcement, DOT, and commercial fleets across Texas."
         primaryCta="Request Quote"
         primaryCtaLink="/contact"
         secondaryCta="View Our Work"
         secondaryCtaLink="/portfolio"
+        backgroundImage="/images/hero/home-hero.jpg"
       />
 
-      {/* Services Section */}
       <section className="section services-section">
         <div className="container">
           <div className="section-header">
             <h2>Our Services</h2>
-            <p>Comprehensive fleet solutions from Texas's trusted upfitting partner</p>
+            <p>Comprehensive fleet solutions from Texas trusted upfitting partner</p>
           </div>
           <div className="grid grid-3">
             {services.map((service, index) => (
@@ -78,10 +71,8 @@ function Home() {
         </div>
       </section>
 
-      {/* Stats Section */}
       <StatsSection />
 
-      {/* Why Choose Us Section */}
       <section className="section pillars-section">
         <div className="container">
           <div className="section-header">
@@ -91,7 +82,6 @@ function Home() {
           <div className="grid grid-4 pillars-grid">
             {pillars.map((pillar, index) => (
               <div key={index} className="pillar-card">
-                <div className="pillar-icon">{pillar.icon}</div>
                 <h3>{pillar.title}</h3>
                 <p>{pillar.description}</p>
               </div>
@@ -100,10 +90,8 @@ function Home() {
         </div>
       </section>
 
-      {/* Partners Carousel */}
       <PartnerCarousel />
 
-      {/* Locations Section */}
       <section className="section locations-section">
         <div className="container">
           <div className="section-header">
@@ -114,7 +102,7 @@ function Home() {
             <div className="location-card">
               <h3>San Antonio</h3>
               <p className="location-address">
-                5827 US-90<br />
+                5827 W Highway 90<br />
                 San Antonio, TX 78227
               </p>
               <a href="tel:2102016121" className="location-phone">(210) 201-6121</a>
@@ -131,7 +119,6 @@ function Home() {
         </div>
       </section>
 
-      {/* CTA Section */}
       <CtaSection
         title="Ready to Outfit Your Fleet?"
         subtitle="Contact us today for a free consultation. Our team will work with you to find the perfect solution for your needs and budget."

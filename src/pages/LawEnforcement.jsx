@@ -7,32 +7,26 @@ import './LawEnforcement.css'
 function LawEnforcement() {
   const services = [
     {
-      icon: '🚨',
       title: 'Emergency Lighting',
       description: 'Full lightbar installations, interior/exterior LED systems, and traffic advisors from top vendors.',
     },
     {
-      icon: '📻',
       title: 'Communication Systems',
       description: 'Radio installations, speaker systems, PA setups, and integrated control systems.',
     },
     {
-      icon: '🖥️',
       title: 'Console & Mounting',
       description: 'Custom console builds, laptop mounts, weapon mounts, and equipment storage solutions.',
     },
     {
-      icon: '🛡️',
       title: 'Prisoner Transport',
       description: 'Professional partition installations, transport seats, and security equipment.',
     },
     {
-      icon: '📹',
       title: 'Video Systems',
       description: 'In-car video, body camera integration, and evidence management solutions.',
     },
     {
-      icon: '⚡',
       title: 'Electrical Systems',
       description: 'Auxiliary wiring, power management, and charging solutions for all vehicle electronics.',
     },
@@ -48,10 +42,10 @@ function LawEnforcement() {
   ]
 
   const stats = [
-    { value: '200+', label: 'Patrol Vehicles Equipped' },
-    { value: '50+', label: 'Departments Served' },
-    { value: '15+', label: 'Years Experience' },
-    { value: '100%', label: 'Satisfaction Rate' },
+    { value: '68+', label: 'Years Combined Experience' },
+    { value: '24/7', label: 'Customer Support' },
+    { value: '48hr', label: 'Typical Turnaround' },
+    { value: '100%', label: 'Satisfaction Guaranteed' },
   ]
 
   return (
@@ -62,6 +56,7 @@ function LawEnforcement() {
         subtitle="Complete patrol vehicle solutions built to your department's specifications. From lightbars to prisoner transport, we deliver quality you can depend on."
         primaryCta="Request Quote"
         primaryCtaLink="/contact"
+        backgroundImage="/images/hero/law-enforcement-hero.jpg"
         compact
       />
 
@@ -90,7 +85,7 @@ function LawEnforcement() {
             <div className="why-text">
               <h2>Built for the Badge</h2>
               <p>
-                We understand that law enforcement vehicles aren't just transportation—they're mobile command centers that must perform flawlessly in critical situations. Our veteran-owned team brings the same dedication to precision and reliability that you bring to your duty.
+                We understand that law enforcement vehicles aren't just transportation—they're mobile command centers that must perform flawlessly in critical situations. Our experienced team brings the same dedication to precision and reliability that you bring to your duty.
               </p>
               <p>
                 Every installation is completed to factory-quality standards, with meticulous attention to wire management, equipment placement, and integration. We work with your department to ensure every vehicle meets your exact specifications.
