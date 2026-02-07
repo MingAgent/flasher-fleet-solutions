@@ -112,7 +112,7 @@ function Home() {
           </div>
           <div className="grid grid-2 locations-grid">
             <div className="location-card location-san-antonio">
-              <div className="location-image">
+              <div className="location-image has-image">
                 <div className="location-overlay"></div>
                 <span className="location-label">San Antonio</span>
               </div>
@@ -126,7 +126,7 @@ function Home() {
               </div>
             </div>
             <div className="location-card location-victoria">
-              <div className="location-image">
+              <div className="location-image has-image">
                 <div className="location-overlay"></div>
                 <span className="location-label">Victoria</span>
               </div>
