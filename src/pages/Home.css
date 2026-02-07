@@ -1,17 +1,11 @@
-/* ===========================================
-   Home Page Styles
-   =========================================== */
-
 .home-page {
   overflow-x: hidden;
 }
 
-/* Services Section */
 .services-section {
   background: var(--steel-white);
 }
 
-/* Pillars Section */
 .pillars-section {
   background: white;
 }
@@ -22,12 +16,9 @@
 
 .pillar-card {
   text-align: center;
-  padding: var(--space-lg);
-}
-
-.pillar-icon {
-  font-size: 2.5rem;
-  margin-bottom: var(--space-md);
+  padding: var(--space-xl);
+  background: var(--steel-white);
+  border-radius: var(--radius-md);
 }
 
 .pillar-card h3 {
@@ -45,7 +36,6 @@
   margin: 0;
 }
 
-/* Locations Section */
 .locations-section {
   background: var(--steel-white);
 }
@@ -91,7 +81,6 @@
   color: var(--red-dark);
 }
 
-/* Desktop Breakpoint */
 @media (min-width: 768px) {
   .pillar-card {
     padding: var(--space-xl);

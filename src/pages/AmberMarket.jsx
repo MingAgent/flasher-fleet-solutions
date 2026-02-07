@@ -7,32 +7,26 @@ import './AmberMarket.css'
 function AmberMarket() {
   const industries = [
     {
-      icon: '🚧',
       title: 'DOT & Highway',
       description: 'Marking lights, arrow boards, strobes, and safety systems for highway maintenance and construction vehicles.',
     },
     {
-      icon: '🏗️',
-      title: 'Construction',
-      description: 'Durable amber lighting solutions for heavy equipment, service trucks, and construction fleet vehicles.',
+      title: 'General Construction & Utility',
+      description: 'Durable amber lighting solutions for heavy equipment, service trucks, utility vehicles, and construction fleet vehicles.',
     },
     {
-      icon: '🚛',
       title: 'Tow & Recovery',
       description: 'High-visibility warning lights, rotators, and safety equipment for tow trucks and recovery vehicles.',
     },
     {
-      icon: '⚡',
-      title: 'Utilities',
-      description: 'Fleet-wide lighting packages for utility companies including bucket trucks, service vehicles, and trailers.',
+      title: 'UTVs & Trailers',
+      description: 'Compact lighting packages and safety systems for utility terrain vehicles, work trailers, and equipment haulers.',
     },
     {
-      icon: '🛡️',
-      title: 'Security',
-      description: 'Amber and amber/white combination lighting for private security and patrol vehicles.',
+      title: '18 Wheelers',
+      description: 'Commercial truck lighting, marker lights, and safety equipment for semi-trucks and long-haul vehicles.',
     },
     {
-      icon: '🚐',
       title: 'Commercial Fleet',
       description: 'Warning lights and safety equipment for delivery vehicles, service fleets, and commercial trucks.',
     },
@@ -40,32 +34,28 @@ function AmberMarket() {
 
   const services = [
     {
-      icon: '💡',
       title: 'LED Lightbars',
       description: 'Full-size, mini, and micro lightbars in amber, amber/white, and custom configurations.',
     },
     {
-      icon: '🔦',
       title: 'Surface Mount LEDs',
       description: 'Grill lights, hideaways, deck lights, and perimeter lighting solutions.',
     },
     {
-      icon: '↗️',
       title: 'Arrow Boards',
       description: 'Directional arrow boards for traffic control and highway work zone safety.',
     },
     {
-      icon: '🔊',
       title: 'Backup Alarms',
       description: 'Audible warning systems and backup cameras for heavy equipment and commercial vehicles.',
     },
   ]
 
   const stats = [
-    { value: '300+', label: 'Commercial Vehicles' },
-    { value: '20+', label: 'Fleet Contracts' },
+    { value: '68+', label: 'Years Combined Experience' },
     { value: '48hr', label: 'Typical Turnaround' },
     { value: '5yr', label: 'Product Warranty' },
+    { value: '100%', label: 'Satisfaction Guaranteed' },
   ]
 
   return (
@@ -76,6 +66,7 @@ function AmberMarket() {
         subtitle="Professional-grade amber lighting and safety equipment for DOT, construction, tow/recovery, utilities, and commercial fleets."
         primaryCta="Get Fleet Quote"
         primaryCtaLink="/contact"
+        backgroundImage="/images/hero/amber-hero.jpg"
         compact
       />
 
@@ -122,7 +113,7 @@ function AmberMarket() {
           <div className="fleet-content">
             <h2>Fleet Programs</h2>
             <p>
-              Running a large fleet? We offer fleet-wide installation programs with volume pricing, scheduled maintenance, and dedicated account management. Whether you need to outfit 10 vehicles or 100, we'll create a program that works for your operation.
+              Running a large fleet? We offer fleet-wide installation programs with volume pricing, scheduled maintenance, and dedicated account management. No matter the size of your fleet, we'll create a program that works for your operation.
             </p>
             <div className="fleet-benefits">
               <div className="benefit">

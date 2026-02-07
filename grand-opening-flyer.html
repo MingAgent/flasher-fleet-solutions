@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flasher Fleet Solutions - Grand Opening</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .flyer {
+      width: 9in;
+      height: 5in;
+      background: linear-gradient(135deg, #1B2A4E 0%, #0d1a33 100%);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+      display: flex;
+    }
+
+    /* Left side - Images */
+    .flyer-images {
+      width: 55%;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .image-top {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 50%;
+      background: url('images/construction-truck.jpg') center center / cover no-repeat;
+      border-bottom: 3px solid #B31B1B;
+    }
+
+    .image-bottom {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 50%;
+      background: url('images/police-fleet.jpg') center center / cover no-repeat;
+    }
+
+    .image-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(90deg, rgba(27,42,78,0) 0%, rgba(27,42,78,0.8) 100%);
+    }
+
+    /* Right side - Content */
+    .flyer-content {
+      width: 45%;
+      height: 100%;
+      padding: 0.4in 0.35in;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+    }
+
+    .grand-opening-badge {
+      background: #B31B1B;
+      color: white;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      padding: 6px 20px;
+      display: inline-block;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .company-name {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #F5C518;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      line-height: 1.1;
+    }
+
+    .company-name span {
+      display: block;
+      color: white;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+    }
+
+    /* Event Details */
+    .event-details {
+      text-align: center;
+    }
+
+    .event-date {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 4px;
+    }
+
+    .event-time {
+      font-size: 0.75rem;
+      color: #A8B2BD;
+      margin-bottom: 12px;
+    }
+
+    .highlights {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .highlight {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: white;
+      font-size: 0.55rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 3px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Location */
+    .location {
+      text-align: center;
+      background: rgba(0,0,0,0.2);
+      padding: 12px;
+      border-radius: 6px;
+    }
+
+    .location-label {
+      font-size: 0.5rem;
+      color: #A8B2BD;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+
+    .location-address {
+      font-size: 0.7rem;
+      color: white;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    /* QR and CTA */
+    .qr-section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .qr-code {
+      width: 70px;
+      height: 70px;
+      background: white;
+      padding: 4px;
+      border-radius: 6px;
+    }
+
+    .qr-code img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .qr-text {
+      text-align: left;
+    }
+
+    .qr-text .scan {
+      font-size: 0.5rem;
+      color: #A8B2BD;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .qr-text .website {
+      font-size: 0.65rem;
+      color: #F5C518;
+      font-weight: 700;
+    }
+
+    /* Decorative Elements */
+    .red-stripe {
+      position: absolute;
+      top: 0;
+      right: 45%;
+      width: 4px;
+      height: 100%;
+      background: #B31B1B;
+    }
+
+    .corner-accent {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 100px;
+      height: 100px;
+      background: linear-gradient(135deg, transparent 50%, rgba(179,27,27,0.3) 50%);
+    }
+
+    /* Print styles */
+    @media print {
+      body {
+        background: none;
+        padding: 0;
+      }
+      .flyer {
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="flyer">
+    <!-- Left Side - Images -->
+    <div class="flyer-images">
+      <div class="image-top">
+        <!-- Construction truck image placeholder -->
+      </div>
+      <div class="image-bottom">
+        <!-- Police fleet image placeholder -->
+      </div>
+      <div class="image-overlay"></div>
+    </div>
+
+    <!-- Red Stripe Divider -->
+    <div class="red-stripe"></div>
+
+    <!-- Right Side - Content -->
+    <div class="flyer-content">
+      <!-- Header -->
+      <div class="header">
+        <div class="grand-opening-badge">Grand Opening</div>
+        <h1 class="company-name">
+          FLASHER
+          <span>Fleet Solutions</span>
+        </h1>
+      </div>
+
+      <!-- Event Details -->
+      <div class="event-details">
+        <div class="event-date">FEBRUARY 7, 2026</div>
+        <div class="event-time">10:00 AM - 4:00 PM</div>
+        <div class="highlights">
+          <span class="highlight">Ribbon Cutting</span>
+          <span class="highlight">Vehicle Demos</span>
+          <span class="highlight">Food & Drinks</span>
+          <span class="highlight">Giveaways</span>
+        </div>
+      </div>
+
+      <!-- Location -->
+      <div class="location">
+        <div class="location-label">Join Us At</div>
+        <div class="location-address">
+          5827 W Highway 90<br>
+          San Antonio, TX 78227
+        </div>
+      </div>
+
+      <!-- QR Code Section -->
+      <div class="qr-section">
+        <div class="qr-code">
+          <!-- QR code placeholder - replace with actual image -->
+          <img src="images/qr-code.png" alt="Scan for more info">
+        </div>
+        <div class="qr-text">
+          <div class="scan">Scan for Details</div>
+          <div class="website">flasherfleetsolutions.com</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Corner Accent -->
+    <div class="corner-accent"></div>
+  </div>
+</body>
+</html>

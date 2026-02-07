@@ -36,12 +36,10 @@ function ContactForm() {
 
   const industries = [
     'Law Enforcement',
-    'Fire/EMS',
     'DOT/Highway',
     'Tow/Recovery',
     'Utilities',
     'Construction',
-    'Security',
     'Other',
   ]
 

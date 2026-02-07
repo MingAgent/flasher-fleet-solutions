@@ -10,67 +10,66 @@ function Portfolio() {
     { id: 'all', label: 'All Projects' },
     { id: 'law-enforcement', label: 'Law Enforcement' },
     { id: 'amber', label: 'Amber/Commercial' },
-    { id: 'fire-ems', label: 'Fire/EMS' },
     { id: 'specialty', label: 'Specialty' },
   ]
 
-  // Placeholder projects - replace with actual project data
+  // Project data with actual images
   const projects = [
     {
       id: 1,
       title: 'Police Interceptor Full Build',
       category: 'law-enforcement',
       description: 'Complete patrol package including lightbar, console, partition, and communications.',
-      image: '/portfolio/project-1.jpg',
+      image: '/images/portfolio/project-1.jpg',
     },
     {
       id: 2,
       title: 'DOT Highway Maintenance Fleet',
       category: 'amber',
       description: '15-vehicle fleet outfitting with amber lightbars and arrow boards.',
-      image: '/portfolio/project-2.jpg',
+      image: '/images/portfolio/project-2.jpg',
     },
     {
       id: 3,
-      title: 'Fire Department Command Vehicle',
-      category: 'fire-ems',
+      title: 'Mobile Command Center',
+      category: 'specialty',
       description: 'Mobile command center with full communications and lighting package.',
-      image: '/portfolio/project-3.jpg',
+      image: '/images/portfolio/project-3.jpg',
     },
     {
       id: 4,
       title: 'Tow Truck Warning System',
       category: 'amber',
       description: 'High-visibility amber LED system for roadside safety.',
-      image: '/portfolio/project-4.jpg',
+      image: '/images/portfolio/project-4.jpg',
     },
     {
       id: 5,
       title: 'Unmarked Detective Vehicle',
       category: 'law-enforcement',
       description: 'Covert lighting package with hideaways and interior LEDs.',
-      image: '/portfolio/project-5.jpg',
+      image: '/images/portfolio/project-5.jpg',
     },
     {
       id: 6,
       title: 'Utility Service Truck',
       category: 'amber',
       description: 'Work light and amber warning system installation.',
-      image: '/portfolio/project-6.jpg',
+      image: '/images/portfolio/project-6.jpg',
     },
     {
       id: 7,
       title: 'K-9 Unit Vehicle',
-      category: 'specialty',
+      category: 'law-enforcement',
       description: 'Specialized K-9 vehicle with climate control and safety systems.',
-      image: '/portfolio/project-7.jpg',
+      image: '/images/portfolio/project-7.jpg',
     },
     {
       id: 8,
-      title: 'EMS Quick Response Vehicle',
-      category: 'fire-ems',
-      description: 'Emergency lighting and medical equipment mounting solutions.',
-      image: '/portfolio/project-8.jpg',
+      title: 'Quick Response Vehicle',
+      category: 'specialty',
+      description: 'Emergency lighting and equipment mounting solutions.',
+      image: '/images/portfolio/project-8.jpg',
     },
   ]
 
@@ -83,7 +82,8 @@ function Portfolio() {
       <Hero
         title="Our"
         highlight="Portfolio"
-        subtitle="See examples of our work across law enforcement, amber market, fire/EMS, and specialty vehicle applications."
+        subtitle="See examples of our work across law enforcement, amber market, and specialty vehicle applications."
+        backgroundImage="/images/hero/portfolio-hero.jpg"
         compact
       />
 
@@ -111,10 +111,11 @@ function Portfolio() {
             {filteredProjects.map(project => (
               <div key={project.id} className="project-card">
                 <div className="project-image">
-                  {/* Placeholder for actual images */}
-                  <div className="project-placeholder">
-                    <span>Project Image</span>
-                  </div>
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    loading="lazy"
+                  />
                 </div>
                 <div className="project-content">
                   <span className="project-category">

@@ -1,5 +1,6 @@
 /* ===========================================
    Flasher Fleet Solutions - Global Styles
+   MOBILE-FIRST APPROACH
    =========================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
@@ -16,6 +17,7 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -26,9 +28,10 @@ body {
   background-color: var(--color-background);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
-/* Typography */
+/* Typography - Mobile First */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-headline);
   font-weight: var(--weight-bold);
@@ -36,21 +39,10 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--navy-command);
 }
 
-h1 {
-  font-size: clamp(2.5rem, 5vw, 4rem);
-}
-
-h2 {
-  font-size: clamp(2rem, 4vw, 3rem);
-}
-
-h3 {
-  font-size: clamp(1.5rem, 3vw, 2rem);
-}
-
-h4 {
-  font-size: clamp(1.25rem, 2vw, 1.5rem);
-}
+h1 { font-size: 2rem; }
+h2 { font-size: 1.75rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.25rem; }
 
 p {
   margin-bottom: var(--space-md);
@@ -72,7 +64,7 @@ img {
   display: block;
 }
 
-/* Container */
+/* Container - Mobile First */
 .container {
   width: 100%;
   max-width: var(--container-xl);
@@ -80,27 +72,15 @@ img {
   padding: 0 var(--space-md);
 }
 
-@media (min-width: 768px) {
-  .container {
-    padding: 0 var(--space-xl);
-  }
-}
-
-/* Section Spacing */
+/* Section Spacing - Mobile First */
 .section {
-  padding: var(--space-3xl) 0;
-}
-
-@media (min-width: 768px) {
-  .section {
-    padding: var(--space-4xl) 0;
-  }
+  padding: var(--space-2xl) 0;
 }
 
 /* Section Header */
 .section-header {
   text-align: center;
-  margin-bottom: var(--space-3xl);
+  margin-bottom: var(--space-2xl);
 }
 
 .section-header h2 {
@@ -109,17 +89,18 @@ img {
 
 .section-header p {
   color: var(--chrome-silver);
-  font-size: 1.125rem;
+  font-size: 1rem;
   max-width: 600px;
   margin: 0 auto;
 }
 
-/* Button Styles */
+/* Button Styles - Mobile First (full width on mobile) */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: var(--space-md) var(--space-xl);
+  width: 100%;
+  padding: var(--space-md) var(--space-lg);
   font-family: var(--font-subheading);
   font-weight: var(--weight-semibold);
   font-size: 1rem;
@@ -128,6 +109,7 @@ img {
   border-radius: var(--radius-sm);
   cursor: pointer;
   transition: all var(--transition-base);
+  -webkit-tap-highlight-color: transparent;
 }
 
 .btn-primary {
@@ -167,7 +149,7 @@ img {
 /* Card Styles */
 .card {
   background: white;
-  padding: var(--space-xl);
+  padding: var(--space-lg);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-md);
   transition: transform var(--transition-base), box-shadow var(--transition-base);
@@ -178,68 +160,25 @@ img {
   box-shadow: var(--shadow-lg);
 }
 
-/* Grid System */
+/* Grid System - Mobile First (single column default) */
 .grid {
   display: grid;
-  gap: var(--space-lg);
+  gap: var(--space-md);
 }
 
-.grid-2 {
-  grid-template-columns: repeat(1, 1fr);
-}
-
-.grid-3 {
-  grid-template-columns: repeat(1, 1fr);
-}
-
+.grid-2,
+.grid-3,
 .grid-4 {
-  grid-template-columns: repeat(2, 1fr);
-}
-
-@media (min-width: 768px) {
-  .grid-2 {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .grid-3 {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .grid-4 {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-@media (min-width: 1024px) {
-  .grid-3 {
-    grid-template-columns: repeat(3, 1fr);
-  }
+  grid-template-columns: 1fr;
 }
 
 /* Utility Classes */
-.text-center {
-  text-align: center;
-}
-
-.text-white {
-  color: white;
-}
-
-.text-muted {
-  color: var(--chrome-silver);
-}
-
-.bg-navy {
-  background-color: var(--navy-command);
-}
-
-.bg-dark {
-  background-color: var(--forge-black);
-}
-
-.bg-light {
-  background-color: var(--steel-white);
-}
+.text-center { text-align: center; }
+.text-white { color: white; }
+.text-muted { color: var(--chrome-silver); }
+.bg-navy { background-color: var(--navy-command); }
+.bg-dark { background-color: var(--forge-black); }
+.bg-light { background-color: var(--steel-white); }
 
 /* Focus States for Accessibility */
 :focus-visible {
@@ -253,20 +192,87 @@ img {
   color: white;
 }
 
-/* Scrollbar Styling */
-::-webkit-scrollbar {
-  width: 8px;
+/* Skip to content link for accessibility */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--heritage-red);
+  color: white;
+  padding: 8px;
+  z-index: 100;
 }
 
-::-webkit-scrollbar-track {
-  background: var(--steel-white);
+.skip-link:focus {
+  top: 0;
 }
 
-::-webkit-scrollbar-thumb {
-  background: var(--chrome-silver);
-  border-radius: var(--radius-full);
+/* =========================================
+   TABLET BREAKPOINT (768px+)
+   ========================================= */
+@media (min-width: 768px) {
+  h1 { font-size: 3rem; }
+  h2 { font-size: 2.5rem; }
+  h3 { font-size: 1.75rem; }
+  
+  .container {
+    padding: 0 var(--space-xl);
+  }
+  
+  .section {
+    padding: var(--space-3xl) 0;
+  }
+  
+  .section-header {
+    margin-bottom: var(--space-3xl);
+  }
+  
+  .section-header p {
+    font-size: 1.125rem;
+  }
+  
+  .btn {
+    width: auto;
+    padding: var(--space-md) var(--space-xl);
+  }
+  
+  .card {
+    padding: var(--space-xl);
+  }
+  
+  .grid {
+    gap: var(--space-lg);
+  }
+  
+  .grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: var(--navy-light);
+/* =========================================
+   DESKTOP BREAKPOINT (1024px+)
+   ========================================= */
+@media (min-width: 1024px) {
+  h1 { font-size: 4rem; }
+  h2 { font-size: 3rem; }
+  
+  .section {
+    padding: var(--space-4xl) 0;
+  }
+  
+  .grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }

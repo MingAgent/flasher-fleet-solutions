@@ -33,7 +33,7 @@ function Footer() {
             <h4>Locations</h4>
             <div className="location">
               <strong>San Antonio</strong>
-              <p>5827 US-90<br />San Antonio, TX 78227</p>
+              <p>5827 W Highway 90<br />San Antonio, TX 78227</p>
             </div>
             <div className="location">
               <strong>Victoria</strong>
