@@ -39,7 +39,7 @@ function Portfolio() {
     {
       id: 4,
       title: 'Tow Truck Warning System',
-      category: 'amber',
+      category: 'law-enforcement',
       description: 'High-visibility amber LED system for roadside safety.',
       image: '/flasher-fleet-solutions/images/portfolio/project-4.jpg',
     },
