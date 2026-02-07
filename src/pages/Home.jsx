@@ -66,7 +66,7 @@ function Home() {
         ]}
       />
 
-      {/* Partner Carousel - Positioned directly under hero */}
+      {/* Partner Carousel - Trusted vendor partners */}
       <PartnerCarousel />
 
       <section className="section services-section">

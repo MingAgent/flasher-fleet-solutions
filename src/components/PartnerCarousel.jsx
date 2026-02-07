@@ -1,16 +1,17 @@
 import { useEffect, useRef } from 'react'
 import './PartnerCarousel.css'
 
-// Partner data - SVG logos with brand colors
+// Partner data with actual logo files
 const partners = [
-  { name: 'Feniex', logo: '/flasher-fleet-solutions/images/partners/feniex.svg', accent: '#E31837' },
-  { name: 'Whelen', logo: '/flasher-fleet-solutions/images/partners/whelen.svg', accent: '#00529B' },
-  { name: 'Federal Signal', logo: '/flasher-fleet-solutions/images/partners/federal-signal.svg', accent: '#1C3F6E' },
-  { name: 'SoundOff Signal', logo: '/flasher-fleet-solutions/images/partners/soundoff-signal.svg', accent: '#F15A24' },
-  { name: 'Code 3', logo: '/flasher-fleet-solutions/images/partners/code3.svg', accent: '#CE1126' },
-  { name: 'Setina', logo: '/flasher-fleet-solutions/images/partners/setina.svg', accent: '#004B87' },
-  { name: 'Jotto Desk', logo: '/flasher-fleet-solutions/images/partners/jotto-desk.svg', accent: '#2B5797' },
-  { name: 'Havis', logo: '/flasher-fleet-solutions/images/partners/havis.svg', accent: '#E4002B' },
+  { name: 'Feniex', logo: '/flasher-fleet-solutions/images/partners/feniex.png' },
+  { name: 'Whelen', logo: '/flasher-fleet-solutions/images/partners/whelen.jpg' },
+  { name: 'Federal Signal', logo: '/flasher-fleet-solutions/images/partners/federal-signal.png' },
+  { name: 'SoundOff Signal', logo: '/flasher-fleet-solutions/images/partners/soundoff-signal.png' },
+  { name: 'Code 3', logo: '/flasher-fleet-solutions/images/partners/code3.png' },
+  { name: 'Setina', logo: '/flasher-fleet-solutions/images/partners/setina.png' },
+  { name: 'Jotto Desk', logo: '/flasher-fleet-solutions/images/partners/jotto-desk.webp' },
+  { name: 'Havis', logo: '/flasher-fleet-solutions/images/partners/havis.png' },
+  { name: 'Troy Products', logo: '/flasher-fleet-solutions/images/partners/troy-products.webp' },
 ]
 
 function PartnerCarousel() {
@@ -67,20 +68,14 @@ function PartnerCarousel() {
         <div className="carousel-track">
           {allPartners.map((partner, index) => (
             <div key={`${partner.name}-${index}`} className="partner-item">
-              {partner.logo ? (
+              <div className="partner-logo-card">
                 <img
                   src={partner.logo}
                   alt={partner.name}
                   className="partner-logo"
+                  loading="lazy"
                 />
-              ) : (
-                <div
-                  className="partner-logo-styled"
-                  style={{ '--accent-color': partner.accent }}
-                >
-                  <span className="partner-name">{partner.name}</span>
-                </div>
-              )}
+              </div>
             </div>
           ))}
         </div>
