@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 60">
+  <defs>
+    <linearGradient id="soundoffGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#F15A24"/>
+      <stop offset="100%" style="stop-color:#D94A1A"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="15" width="6" height="30" fill="url(#soundoffGrad)"/>
+  <text x="16" y="35" font-family="Arial, sans-serif" font-weight="bold" font-size="18" fill="#FFFFFF" letter-spacing="1">SOUNDOFF</text>
+  <text x="16" y="50" font-family="Arial, sans-serif" font-weight="normal" font-size="14" fill="#CCCCCC" letter-spacing="2">SIGNAL</text>
+</svg>
