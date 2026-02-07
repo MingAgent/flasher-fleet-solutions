@@ -90,6 +90,7 @@ function Hero({
             muted
             playsInline
             preload="auto"
+            loop={videos.length <= 1}
           >
             <source src={videos[currentVideoIndex]} type="video/mp4" />
           </video>
