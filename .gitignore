@@ -4,7 +4,7 @@ node_modules/
 .pnp.js
 
 # Build
-dist/
+# Note: dist/ is NOT gitignored because we use git subtree push --prefix dist for GitHub Pages deployment
 build/
 
 # Local env files
