@@ -1,3 +1,7 @@
+/* ===========================================
+   Home Page Styles - MOBILE FIRST
+   =========================================== */
+
 .home-page {
   overflow-x: hidden;
 }
@@ -16,7 +20,7 @@
 
 .pillar-card {
   text-align: center;
-  padding: var(--space-xl);
+  padding: var(--space-lg);
   background: var(--steel-white);
   border-radius: var(--radius-md);
 }
@@ -24,45 +28,133 @@
 .pillar-card h3 {
   font-family: var(--font-subheading);
   font-weight: var(--weight-semibold);
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: var(--navy-command);
   margin-bottom: var(--space-sm);
 }
 
 .pillar-card p {
   color: var(--chrome-silver);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   line-height: 1.6;
   margin: 0;
 }
+
+/* ===========================================
+   Locations Section - MOBILE FIRST
+   =========================================== */
 
 .locations-section {
   background: var(--steel-white);
 }
 
 .locations-grid {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
+  gap: var(--space-lg);
 }
 
 .location-card {
   background: white;
-  padding: var(--space-xl);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-md);
+  overflow: hidden;
+  transition: all var(--transition-base);
+}
+
+.location-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Location Image - Mobile First */
+.location-image {
+  position: relative;
+  height: 140px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* San Antonio - Alamo/city skyline inspired gradient */
+.location-san-antonio .location-image {
+  background: linear-gradient(
+    135deg,
+    #1B2A4E 0%,
+    #2C3E6C 30%,
+    #8B4513 60%,
+    #CD853F 100%
+  );
+  background-size: 200% 200%;
+}
+
+/* Victoria - Texas plains/sunset inspired gradient */
+.location-victoria .location-image {
+  background: linear-gradient(
+    135deg,
+    #1B2A4E 0%,
+    #4A6FA5 30%,
+    #87CEEB 60%,
+    #F4A460 100%
+  );
+  background-size: 200% 200%;
+}
+
+.location-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.4) 100%
+  );
+}
+
+.location-label {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-headline);
+  font-size: 1.25rem;
+  font-weight: var(--weight-bold);
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  letter-spacing: 1px;
+}
+
+/* When actual images are available, use this class */
+.location-image.has-image {
+  background-size: cover;
+  background-position: center;
+}
+
+.location-san-antonio .location-image.has-image {
+  background-image: url('/flasher-fleet-solutions/images/locations/san-antonio.jpg');
+}
+
+.location-victoria .location-image.has-image {
+  background-image: url('/flasher-fleet-solutions/images/locations/victoria.jpg');
+}
+
+/* Location Info */
+.location-info {
+  padding: var(--space-lg);
   text-align: center;
 }
 
-.location-card h3 {
+.location-info h3 {
   font-family: var(--font-headline);
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   color: var(--navy-command);
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-sm);
 }
 
 .location-address {
   color: var(--chrome-silver);
-  font-size: 1rem;
+  font-size: 0.9rem;
   line-height: 1.7;
   margin-bottom: var(--space-md);
 }
@@ -71,7 +163,7 @@
   display: inline-block;
   font-family: var(--font-subheading);
   font-weight: var(--weight-semibold);
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: var(--heritage-red);
   text-decoration: none;
   transition: color var(--transition-fast);
@@ -81,8 +173,57 @@
   color: var(--red-dark);
 }
 
+/* ===========================================
+   TABLET BREAKPOINT (768px+)
+   =========================================== */
 @media (min-width: 768px) {
   .pillar-card {
     padding: var(--space-xl);
+  }
+
+  .pillar-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .pillar-card p {
+    font-size: 0.95rem;
+  }
+
+  .location-image {
+    height: 160px;
+  }
+
+  .location-label {
+    font-size: 1.5rem;
+  }
+
+  .location-info {
+    padding: var(--space-xl);
+  }
+
+  .location-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--space-md);
+  }
+
+  .location-address {
+    font-size: 1rem;
+  }
+
+  .location-phone {
+    font-size: 1.1rem;
+  }
+}
+
+/* ===========================================
+   DESKTOP BREAKPOINT (1024px+)
+   =========================================== */
+@media (min-width: 1024px) {
+  .location-image {
+    height: 180px;
+  }
+
+  .location-label {
+    font-size: 1.75rem;
   }
 }

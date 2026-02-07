@@ -12,16 +12,19 @@ function Home() {
       title: 'Law Enforcement',
       description: 'Complete patrol vehicle upfitting with lightbars, sirens, consoles, prisoner partitions, and more. Built to department specifications.',
       link: '/law-enforcement',
+      image: '/flasher-fleet-solutions/images/services/law-enforcement.jpg',
     },
     {
       title: 'Amber Market',
       description: 'Professional amber lighting and safety equipment for DOT, construction, tow/recovery, and utility fleets.',
       link: '/amber-market',
+      image: '/flasher-fleet-solutions/images/services/amber-market.jpg',
     },
     {
       title: 'Custom Upfitting',
       description: 'Tailored vehicle modifications to meet your exact operational requirements. From concept to completion.',
       link: '/portfolio',
+      image: '/flasher-fleet-solutions/images/services/custom-upfitting.jpg',
     },
   ]
 
@@ -54,8 +57,17 @@ function Home() {
         primaryCtaLink="/contact"
         secondaryCta="View Our Work"
         secondaryCtaLink="/portfolio"
-        backgroundImage="/images/hero/home-hero.jpg"
+        backgroundImage="/flasher-fleet-solutions/images/hero/home-hero.jpg"
+        videos={[
+          '/flasher-fleet-solutions/videos/hero-law-enforcement.mp4',
+          '/flasher-fleet-solutions/videos/hero-amber.mp4',
+          '/flasher-fleet-solutions/videos/hero-craftsmanship.mp4',
+          '/flasher-fleet-solutions/videos/hero-showcase.mp4',
+        ]}
       />
+
+      {/* Partner Carousel - Positioned directly under hero */}
+      <PartnerCarousel />
 
       <section className="section services-section">
         <div className="container">
@@ -90,8 +102,6 @@ function Home() {
         </div>
       </section>
 
-      <PartnerCarousel />
-
       <section className="section locations-section">
         <div className="container">
           <div className="section-header">
@@ -99,21 +109,33 @@ function Home() {
             <p>Two convenient locations to serve your fleet</p>
           </div>
           <div className="grid grid-2 locations-grid">
-            <div className="location-card">
-              <h3>San Antonio</h3>
-              <p className="location-address">
-                5827 W Highway 90<br />
-                San Antonio, TX 78227
-              </p>
-              <a href="tel:2102016121" className="location-phone">(210) 201-6121</a>
+            <div className="location-card location-san-antonio">
+              <div className="location-image">
+                <div className="location-overlay"></div>
+                <span className="location-label">San Antonio</span>
+              </div>
+              <div className="location-info">
+                <h3>San Antonio</h3>
+                <p className="location-address">
+                  5827 W Highway 90<br />
+                  San Antonio, TX 78227
+                </p>
+                <a href="tel:2102016121" className="location-phone">(210) 201-6121</a>
+              </div>
             </div>
-            <div className="location-card">
-              <h3>Victoria</h3>
-              <p className="location-address">
-                8718 Nursery Dr<br />
-                Victoria, TX 77904
-              </p>
-              <a href="tel:2102016121" className="location-phone">(210) 201-6121</a>
+            <div className="location-card location-victoria">
+              <div className="location-image">
+                <div className="location-overlay"></div>
+                <span className="location-label">Victoria</span>
+              </div>
+              <div className="location-info">
+                <h3>Victoria</h3>
+                <p className="location-address">
+                  8718 Nursery Dr<br />
+                  Victoria, TX 77904
+                </p>
+                <a href="tel:2102016121" className="location-phone">(210) 201-6121</a>
+              </div>
             </div>
           </div>
         </div>

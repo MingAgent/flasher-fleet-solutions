@@ -1,16 +1,17 @@
 import { useEffect, useRef } from 'react'
 import './PartnerCarousel.css'
 
-// Partner logos - replace with actual logo paths when available
+// Partner data - logos can be added when available
+// Set logo: null to use styled text fallback
 const partners = [
-  { name: 'Feniex', logo: '/partners/feniex.png' },
-  { name: 'Whelen', logo: '/partners/whelen.png' },
-  { name: 'Federal Signal', logo: '/partners/federal-signal.png' },
-  { name: 'SoundOff Signal', logo: '/partners/soundoff.png' },
-  { name: 'Code 3', logo: '/partners/code3.png' },
-  { name: 'Setina', logo: '/partners/setina.png' },
-  { name: 'Jotto Desk', logo: '/partners/jotto-desk.png' },
-  { name: 'Havis', logo: '/partners/havis.png' },
+  { name: 'Feniex', logo: null, accent: '#E31837' },
+  { name: 'Whelen', logo: null, accent: '#00529B' },
+  { name: 'Federal Signal', logo: null, accent: '#1C3F6E' },
+  { name: 'SoundOff Signal', logo: null, accent: '#F15A24' },
+  { name: 'Code 3', logo: null, accent: '#CE1126' },
+  { name: 'Setina', logo: null, accent: '#004B87' },
+  { name: 'Jotto Desk', logo: null, accent: '#2B5797' },
+  { name: 'Havis', logo: null, accent: '#E4002B' },
 ]
 
 function PartnerCarousel() {
@@ -67,9 +68,20 @@ function PartnerCarousel() {
         <div className="carousel-track">
           {allPartners.map((partner, index) => (
             <div key={`${partner.name}-${index}`} className="partner-item">
-              <div className="partner-logo-placeholder">
-                {partner.name}
-              </div>
+              {partner.logo ? (
+                <img
+                  src={partner.logo}
+                  alt={partner.name}
+                  className="partner-logo"
+                />
+              ) : (
+                <div
+                  className="partner-logo-styled"
+                  style={{ '--accent-color': partner.accent }}
+                >
+                  <span className="partner-name">{partner.name}</span>
+                </div>
+              )}
             </div>
           ))}
         </div>
