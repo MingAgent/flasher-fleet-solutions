@@ -195,31 +195,29 @@
 
 /* ===========================================
    Play/Pause Button - MOBILE FIRST
-   Low profile, positioned bottom-right
+   Centered at middle-bottom of hero
    =========================================== */
 
 .hero-play-pause {
-  position: absolute;
-  bottom: var(--space-md);
-  right: var(--space-md);
-  z-index: 10;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  border: none;
-  background: rgba(0, 0, 0, 0.4);
-  color: rgba(255, 255, 255, 0.7);
-  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.2s ease;
+  margin: var(--space-xl) auto 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  background: rgba(0, 0, 0, 0.35);
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  transition: all 0.25s ease;
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
 }
 
 .hero-play-pause:hover {
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.55);
+  border-color: rgba(255, 255, 255, 0.7);
   color: white;
   transform: scale(1.1);
 }
@@ -229,12 +227,14 @@
 }
 
 .hero-play-pause.paused {
-  background: rgba(179, 27, 27, 0.6);
+  background: rgba(179, 27, 27, 0.5);
+  border-color: rgba(179, 27, 27, 0.8);
   color: white;
 }
 
 .hero-play-pause.paused:hover {
-  background: rgba(179, 27, 27, 0.8);
+  background: rgba(179, 27, 27, 0.7);
+  border-color: var(--heritage-red);
 }
 
 .hero-play-pause svg {
@@ -242,13 +242,11 @@
   height: 14px;
 }
 
-/* Tablet - slightly larger button */
+/* Tablet */
 @media (min-width: 768px) {
   .hero-play-pause {
-    bottom: var(--space-lg);
-    right: var(--space-lg);
-    width: 36px;
-    height: 36px;
+    width: 44px;
+    height: 44px;
   }
 
   .hero-play-pause svg {
@@ -257,18 +255,11 @@
   }
 }
 
-/* Desktop - larger and more visible on hover */
+/* Desktop */
 @media (min-width: 1024px) {
   .hero-play-pause {
-    bottom: var(--space-xl);
-    right: var(--space-xl);
-    width: 40px;
-    height: 40px;
-    opacity: 0.6;
-  }
-
-  .hero-play-pause:hover {
-    opacity: 1;
+    width: 48px;
+    height: 48px;
   }
 
   .hero-play-pause svg {
