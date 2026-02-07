@@ -38,4 +38,4 @@ coverage/
 # Temp files
 *.tmp
 *~
-assets/
+/assets/
