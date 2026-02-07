@@ -4,14 +4,14 @@
    =========================================== */
 
 .partners-section {
-  background: #f8f9fa;
+  background: #1a2744;
   padding: var(--space-lg) 0;
   overflow: hidden;
 }
 
 .partners-title {
   text-align: center;
-  color: var(--steel-gray);
+  color: var(--chrome-silver);
   font-family: var(--font-subheading);
   font-weight: var(--weight-medium);
   font-size: 0.8rem;
