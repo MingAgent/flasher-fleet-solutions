@@ -15,6 +15,64 @@
   overflow: hidden;
 }
 
+/* Video Background Styles */
+.hero-video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+}
+
+.hero-video.loaded {
+  opacity: 1;
+}
+
+/* Video indicators */
+.hero-video-indicators {
+  display: flex;
+  gap: 8px;
+  margin-top: var(--space-xl);
+  justify-content: center;
+}
+
+.video-indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+.video-indicator:hover {
+  border-color: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.video-indicator.active {
+  border-color: var(--heritage-red);
+  background: var(--heritage-red);
+}
+
 .hero-compact {
   min-height: 60vh;
   min-height: 60dvh;
@@ -132,5 +190,89 @@
   .hero-subtitle {
     font-size: 1.25rem;
     margin-bottom: var(--space-xl);
+  }
+}
+
+/* ===========================================
+   Play/Pause Button - MOBILE FIRST
+   Low profile, positioned bottom-right
+   =========================================== */
+
+.hero-play-pause {
+  position: absolute;
+  bottom: var(--space-md);
+  right: var(--space-md);
+  z-index: 10;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0, 0, 0, 0.4);
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.hero-play-pause:hover {
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  transform: scale(1.1);
+}
+
+.hero-play-pause:active {
+  transform: scale(0.95);
+}
+
+.hero-play-pause.paused {
+  background: rgba(179, 27, 27, 0.6);
+  color: white;
+}
+
+.hero-play-pause.paused:hover {
+  background: rgba(179, 27, 27, 0.8);
+}
+
+.hero-play-pause svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* Tablet - slightly larger button */
+@media (min-width: 768px) {
+  .hero-play-pause {
+    bottom: var(--space-lg);
+    right: var(--space-lg);
+    width: 36px;
+    height: 36px;
+  }
+
+  .hero-play-pause svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* Desktop - larger and more visible on hover */
+@media (min-width: 1024px) {
+  .hero-play-pause {
+    bottom: var(--space-xl);
+    right: var(--space-xl);
+    width: 40px;
+    height: 40px;
+    opacity: 0.6;
+  }
+
+  .hero-play-pause:hover {
+    opacity: 1;
+  }
+
+  .hero-play-pause svg {
+    width: 18px;
+    height: 18px;
   }
 }

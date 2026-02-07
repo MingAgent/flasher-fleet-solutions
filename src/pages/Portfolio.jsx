@@ -20,56 +20,56 @@ function Portfolio() {
       title: 'Police Interceptor Full Build',
       category: 'law-enforcement',
       description: 'Complete patrol package including lightbar, console, partition, and communications.',
-      image: '/images/portfolio/project-1.jpg',
+      image: '/flasher-fleet-solutions/images/portfolio/project-1.jpg',
     },
     {
       id: 2,
       title: 'DOT Highway Maintenance Fleet',
       category: 'amber',
       description: '15-vehicle fleet outfitting with amber lightbars and arrow boards.',
-      image: '/images/portfolio/project-2.jpg',
+      image: '/flasher-fleet-solutions/images/portfolio/project-2.jpg',
     },
     {
       id: 3,
       title: 'Mobile Command Center',
       category: 'specialty',
       description: 'Mobile command center with full communications and lighting package.',
-      image: '/images/portfolio/project-3.jpg',
+      image: '/flasher-fleet-solutions/images/portfolio/project-3.jpg',
     },
     {
       id: 4,
       title: 'Tow Truck Warning System',
       category: 'amber',
       description: 'High-visibility amber LED system for roadside safety.',
-      image: '/images/portfolio/project-4.jpg',
+      image: '/flasher-fleet-solutions/images/portfolio/project-4.jpg',
     },
     {
       id: 5,
       title: 'Unmarked Detective Vehicle',
       category: 'law-enforcement',
       description: 'Covert lighting package with hideaways and interior LEDs.',
-      image: '/images/portfolio/project-5.jpg',
+      image: '/flasher-fleet-solutions/images/portfolio/project-5.jpg',
     },
     {
       id: 6,
       title: 'Utility Service Truck',
       category: 'amber',
       description: 'Work light and amber warning system installation.',
-      image: '/images/portfolio/project-6.jpg',
+      image: '/flasher-fleet-solutions/images/portfolio/project-6.jpg',
     },
     {
       id: 7,
       title: 'K-9 Unit Vehicle',
       category: 'law-enforcement',
       description: 'Specialized K-9 vehicle with climate control and safety systems.',
-      image: '/images/portfolio/project-7.jpg',
+      image: '/flasher-fleet-solutions/images/portfolio/project-7.jpg',
     },
     {
       id: 8,
       title: 'Quick Response Vehicle',
       category: 'specialty',
       description: 'Emergency lighting and equipment mounting solutions.',
-      image: '/images/portfolio/project-8.jpg',
+      image: '/flasher-fleet-solutions/images/portfolio/project-8.jpg',
     },
   ]
 
@@ -83,7 +83,7 @@ function Portfolio() {
         title="Our"
         highlight="Portfolio"
         subtitle="See examples of our work across law enforcement, amber market, and specialty vehicle applications."
-        backgroundImage="/images/hero/portfolio-hero.jpg"
+        backgroundImage="/flasher-fleet-solutions/images/hero/portfolio-hero.jpg"
         compact
       />
 
