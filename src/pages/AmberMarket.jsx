@@ -53,7 +53,6 @@ function AmberMarket() {
 
   const stats = [
     { value: '68+', label: 'Years Combined Experience' },
-    { value: '48hr', label: 'Typical Turnaround' },
     { value: '5yr', label: 'Product Warranty' },
     { value: '100%', label: 'Satisfaction Guaranteed' },
   ]
