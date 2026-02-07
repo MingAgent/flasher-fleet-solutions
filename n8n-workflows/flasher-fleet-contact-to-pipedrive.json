@@ -1,0 +1,165 @@
+{
+  "name": "Flasher Fleet - Contact Form to Pipedrive",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "flasher-fleet-contact",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "webhook-trigger",
+      "name": "Webhook - Contact Form",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [240, 300],
+      "webhookId": "flasher-fleet-contact"
+    },
+    {
+      "parameters": {
+        "resource": "person",
+        "name": "={{ $json.fullName }}",
+        "additionalFields": {
+          "email": [
+            {
+              "value": "={{ $json.email }}",
+              "primary": true
+            }
+          ],
+          "phone": [
+            {
+              "value": "={{ $json.phone }}",
+              "primary": true
+            }
+          ],
+          "org_id": {
+            "__rl": true,
+            "mode": "name",
+            "value": "={{ $json.company }}"
+          }
+        }
+      },
+      "id": "pipedrive-create-person",
+      "name": "Pipedrive - Create Person",
+      "type": "n8n-nodes-base.pipedrive",
+      "typeVersion": 1,
+      "position": [480, 300],
+      "credentials": {
+        "pipedriveApi": {
+          "id": "YOUR_PIPEDRIVE_CREDENTIAL_ID",
+          "name": "Pipedrive API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "deal",
+        "title": "={{ 'Quote Request - ' + $json.company + ' (' + $json.industry + ')' }}",
+        "additionalFields": {
+          "person_id": "={{ $('Pipedrive - Create Person').item.json.data.id }}",
+          "value": "",
+          "currency": "USD",
+          "visible_to": "3"
+        }
+      },
+      "id": "pipedrive-create-deal",
+      "name": "Pipedrive - Create Deal",
+      "type": "n8n-nodes-base.pipedrive",
+      "typeVersion": 1,
+      "position": [720, 300],
+      "credentials": {
+        "pipedriveApi": {
+          "id": "YOUR_PIPEDRIVE_CREDENTIAL_ID",
+          "name": "Pipedrive API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "note",
+        "deal_id": "={{ $('Pipedrive - Create Deal').item.json.data.id }}",
+        "content": "={{ '## Quote Request Details\\n\\n**Contact:** ' + $('Webhook - Contact Form').item.json.fullName + '\\n**Email:** ' + $('Webhook - Contact Form').item.json.email + '\\n**Phone:** ' + $('Webhook - Contact Form').item.json.phone + '\\n**Company:** ' + $('Webhook - Contact Form').item.json.company + '\\n**Industry:** ' + $('Webhook - Contact Form').item.json.industry + '\\n**Fleet Size:** ' + $('Webhook - Contact Form').item.json.fleetSize + '\\n\\n---\\n\\n**Project Details:**\\n' + $('Webhook - Contact Form').item.json.message + '\\n\\n---\\n\\nSubmitted: ' + $('Webhook - Contact Form').item.json.submittedAt + '\\nSource: ' + $('Webhook - Contact Form').item.json.source }}"
+      },
+      "id": "pipedrive-add-note",
+      "name": "Pipedrive - Add Note to Deal",
+      "type": "n8n-nodes-base.pipedrive",
+      "typeVersion": 1,
+      "position": [960, 300],
+      "credentials": {
+        "pipedriveApi": {
+          "id": "YOUR_PIPEDRIVE_CREDENTIAL_ID",
+          "name": "Pipedrive API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ { success: true, message: 'Form submitted successfully', dealId: $('Pipedrive - Create Deal').item.json.data.id } }}"
+      },
+      "id": "respond-success",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [1200, 300]
+    }
+  ],
+  "connections": {
+    "Webhook - Contact Form": {
+      "main": [
+        [
+          {
+            "node": "Pipedrive - Create Person",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Pipedrive - Create Person": {
+      "main": [
+        [
+          {
+            "node": "Pipedrive - Create Deal",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Pipedrive - Create Deal": {
+      "main": [
+        [
+          {
+            "node": "Pipedrive - Add Note to Deal",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Pipedrive - Add Note to Deal": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "name": "Flasher Fleet Solutions"
+    },
+    {
+      "name": "CRM Integration"
+    }
+  ]
+}
