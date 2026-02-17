@@ -44,6 +44,83 @@
   opacity: 1;
 }
 
+/* Ken Burns effect for static background images */
+@keyframes kenBurns {
+  0% {
+    transform: scale(1) translate(0, 0);
+  }
+  50% {
+    transform: scale(1.08) translate(-1%, -1%);
+  }
+  100% {
+    transform: scale(1) translate(0, 0);
+  }
+}
+
+.hero-ken-burns {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  animation: kenBurns 20s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Remove inline background when using Ken Burns div */
+.hero-image-bg {
+  background-image: none !important;
+}
+
+/* Hero Image Layer — crossfade cycling images */
+.hero-image-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+  overflow: hidden;
+}
+
+.hero-image-layer.visible {
+  opacity: 1;
+}
+
+.hero-image-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Media indicator dots */
+.hero-media-indicators {
+  display: flex;
+  gap: 8px;
+  margin-top: var(--space-lg);
+  justify-content: center;
+}
+
+.media-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.media-indicator.active {
+  border-color: var(--heritage-red);
+  background: var(--heritage-red);
+}
+
 /* Video indicators */
 .hero-video-indicators {
   display: flex;

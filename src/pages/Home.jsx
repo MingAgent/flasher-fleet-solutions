@@ -58,13 +58,12 @@ function Home() {
         secondaryCta="View Our Work"
         secondaryCtaLink="/portfolio"
         backgroundImage="/images/hero/home-hero.jpg"
-        videos={[
-          '/videos/hero-main.mp4',
-          '/videos/hero-law-enforcement.mp4',
-          '/videos/hero-amber.mp4',
-          '/videos/hero-craftsmanship.mp4',
-          '/videos/hero-showcase.mp4',
-          '/videos/hero-video.mp4',
+        videos={['/videos/flasher-hero.mp4']}
+        heroImages={[
+          '/images/hero/Flasher-Fleet-Hero1.svg',
+          '/images/hero/Flasher-Fleet-Hero2.svg',
+          '/images/hero/Flasher-Fleet-Hero3.svg',
+          '/images/hero/Flasher-Fleet-Hero4.svg',
         ]}
       />
 

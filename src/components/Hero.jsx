@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import './Hero.css'
 
-const ROTATION_INTERVAL = 6000 // 6 seconds per video
+const IMAGE_DISPLAY_TIME = 5000 // 5 seconds per image
 
 function Hero({
   title,
@@ -14,43 +14,93 @@ function Hero({
   secondaryCtaLink,
   backgroundImage,
   videos = [],
+  heroImages = [],
   compact = false,
 }) {
-  const [currentVideoIndex, setCurrentVideoIndex] = useState(0)
-  const [isVideoLoaded, setIsVideoLoaded] = useState(false)
+  // Media state: tracks whether we're showing 'video' or 'image'
+  const [mediaMode, setMediaMode] = useState(videos.length > 0 ? 'video' : 'image')
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  const [isMediaVisible, setIsMediaVisible] = useState(false)
   const [isPlaying, setIsPlaying] = useState(true)
   const videoRef = useRef(null)
-  const timerRef = useRef(null)
+  const imageTimerRef = useRef(null)
+  const isPlayingRef = useRef(true)
 
-  // Advance to the next video in the rotation
-  const advanceVideo = useCallback(() => {
-    if (videos.length <= 1) return
-    setIsVideoLoaded(false) // Trigger fade-out before switch
-    setTimeout(() => {
-      setCurrentVideoIndex((prev) => (prev + 1) % videos.length)
-    }, 400) // Brief delay for fade-out
-  }, [videos.length])
-
-  // 6-second rotation timer
+  // Keep ref in sync with state
   useEffect(() => {
-    if (videos.length <= 1 || !isPlaying) {
-      clearInterval(timerRef.current)
+    isPlayingRef.current = isPlaying
+  }, [isPlaying])
+
+  // When the video ends, transition to image cycling (or loop if no images)
+  const handleVideoEnded = useCallback(() => {
+    if (heroImages.length > 0) {
+      // Fade out video, switch to image mode
+      setIsMediaVisible(false)
+      setTimeout(() => {
+        setCurrentImageIndex(0)
+        setMediaMode('image')
+        // Small delay then fade in the first image
+        setTimeout(() => setIsMediaVisible(true), 100)
+      }, 600)
+    } else {
+      // No images to show — just loop the video
+      const video = videoRef.current
+      if (video) {
+        video.currentTime = 0
+        video.play().catch(() => {})
+      }
+    }
+  }, [heroImages.length])
+
+  // Image cycling timer — when in image mode, advance every 5 seconds
+  useEffect(() => {
+    if (mediaMode !== 'image' || heroImages.length === 0 || !isPlaying) {
+      clearInterval(imageTimerRef.current)
       return
     }
 
-    timerRef.current = setInterval(advanceVideo, ROTATION_INTERVAL)
+    imageTimerRef.current = setInterval(() => {
+      setIsMediaVisible(false)
 
-    return () => clearInterval(timerRef.current)
-  }, [isPlaying, videos.length, advanceVideo])
+      setTimeout(() => {
+        setCurrentImageIndex((prev) => {
+          const nextIndex = prev + 1
 
-  // When video index changes, load and play the new video
+          // After last image, go back to video if we have one
+          if (nextIndex >= heroImages.length && videos.length > 0) {
+            setMediaMode('video')
+            return 0
+          }
+
+          // Otherwise loop back to first image
+          return nextIndex % heroImages.length
+        })
+
+        setTimeout(() => setIsMediaVisible(true), 100)
+      }, 600)
+    }, IMAGE_DISPLAY_TIME)
+
+    return () => clearInterval(imageTimerRef.current)
+  }, [mediaMode, heroImages.length, videos.length, isPlaying])
+
+  // When switching to video mode, load and play
   useEffect(() => {
+    if (mediaMode !== 'video') return
     const video = videoRef.current
     if (!video || videos.length === 0) return
 
     const handleCanPlay = () => {
-      setIsVideoLoaded(true)
-      if (isPlaying) {
+      setIsMediaVisible(true)
+      if (isPlayingRef.current) {
+        video.play().catch((err) => {
+          console.log('Video autoplay blocked:', err)
+        })
+      }
+    }
+
+    const handleLoadedData = () => {
+      setIsMediaVisible(true)
+      if (isPlayingRef.current) {
         video.play().catch((err) => {
           console.log('Video autoplay blocked:', err)
         })
@@ -58,60 +108,105 @@ function Hero({
     }
 
     video.addEventListener('canplay', handleCanPlay)
+    video.addEventListener('loadeddata', handleLoadedData)
+    video.currentTime = 0
     video.load()
 
     return () => {
       video.removeEventListener('canplay', handleCanPlay)
+      video.removeEventListener('loadeddata', handleLoadedData)
     }
-  }, [currentVideoIndex])
+  }, [mediaMode, videos.length])
+
+  // Safety net: handle video stall or error
+  useEffect(() => {
+    const video = videoRef.current
+    if (!video || videos.length === 0) return
+
+    const handleStalled = () => {
+      if (isPlayingRef.current) {
+        setTimeout(() => {
+          video.play().catch(() => {})
+        }, 1000)
+      }
+    }
+
+    const handleError = () => {
+      console.log('Video error, switching to images')
+      if (heroImages.length > 0) {
+        setMediaMode('image')
+        setIsMediaVisible(true)
+      }
+    }
+
+    video.addEventListener('stalled', handleStalled)
+    video.addEventListener('error', handleError)
+
+    return () => {
+      video.removeEventListener('stalled', handleStalled)
+      video.removeEventListener('error', handleError)
+    }
+  }, [videos.length, heroImages.length])
 
   // Handle play/pause toggle
   const togglePlayPause = () => {
     const video = videoRef.current
-    if (!video) return
 
     if (isPlaying) {
-      video.pause()
+      if (video && mediaMode === 'video') video.pause()
+      clearInterval(imageTimerRef.current)
     } else {
-      video.play().catch((err) => {
-        console.log('Video play blocked:', err)
-      })
+      if (video && mediaMode === 'video') {
+        video.play().catch(() => {})
+      }
+      // Image timer will restart via the useEffect
     }
     setIsPlaying(!isPlaying)
   }
 
-  // Click a specific video indicator dot
-  const selectVideo = (index) => {
-    // Reset the rotation timer when manually selecting
-    clearInterval(timerRef.current)
-    setIsVideoLoaded(false)
-    setTimeout(() => {
-      setCurrentVideoIndex(index)
-    }, 400)
-  }
-
   const hasVideos = videos.length > 0
+  const hasHeroImages = heroImages.length > 0
+  const hasMedia = hasVideos || hasHeroImages
+
+  // For pages with no videos and no heroImages array, use single background
+  const useStaticBackground = !hasVideos && !hasHeroImages && backgroundImage
 
   return (
     <section
-      className={`hero ${compact ? 'hero-compact' : ''} ${hasVideos ? 'hero-video-bg' : ''}`}
-      style={!hasVideos && backgroundImage ? { backgroundImage: `url(${backgroundImage})` } : {}}
+      className={`hero ${compact ? 'hero-compact' : ''} ${hasMedia ? 'hero-media-bg' : ''} ${useStaticBackground ? 'hero-image-bg' : ''}`}
+      style={useStaticBackground ? { backgroundImage: `url(${backgroundImage})` } : {}}
     >
-      {/* Video Background */}
+      {/* Video layer — always rendered if videos exist, visibility controlled */}
       {hasVideos && (
         <div className="hero-video-container">
           <video
             ref={videoRef}
-            className={`hero-video ${isVideoLoaded ? 'loaded' : ''}`}
+            className={`hero-video ${mediaMode === 'video' && isMediaVisible ? 'loaded' : ''}`}
             autoPlay
             muted
             playsInline
             preload="auto"
-            loop={videos.length <= 1}
+            onEnded={handleVideoEnded}
           >
-            <source src={videos[currentVideoIndex]} type="video/mp4" />
+            <source src={videos[0]} type="video/mp4" />
           </video>
         </div>
+      )}
+
+      {/* Image layer — shown when in image mode */}
+      {hasHeroImages && (
+        <div className={`hero-image-layer ${mediaMode === 'image' && isMediaVisible ? 'visible' : ''}`}>
+          <img
+            src={heroImages[currentImageIndex]}
+            alt=""
+            className="hero-image-img"
+          />
+        </div>
+      )}
+
+      {/* Ken Burns for static background (non-video, non-carousel pages) */}
+      {useStaticBackground && (
+        <div className="hero-ken-burns" style={{ backgroundImage: `url(${backgroundImage})` }} />
       )}
 
       <div className="hero-overlay"></div>
@@ -135,26 +230,25 @@ function Hero({
           </div>
         )}
 
-        {/* Video indicators (only show if multiple videos) */}
-        {videos.length > 1 && (
-          <div className="hero-video-indicators">
-            {videos.map((_, index) => (
-              <button
+        {/* Media indicator dots */}
+        {hasHeroImages && hasVideos && (
+          <div className="hero-media-indicators">
+            <span className={`media-indicator ${mediaMode === 'video' ? 'active' : ''}`} />
+            {heroImages.map((_, index) => (
+              <span
                 key={index}
-                className={`video-indicator ${index === currentVideoIndex ? 'active' : ''}`}
-                onClick={() => selectVideo(index)}
-                aria-label={`Play video ${index + 1}`}
+                className={`media-indicator ${mediaMode === 'image' && currentImageIndex === index ? 'active' : ''}`}
               />
             ))}
           </div>
         )}
 
-        {/* Play/Pause Button - Centered at bottom */}
-        {hasVideos && (
+        {/* Play/Pause Button */}
+        {hasMedia && (
           <button
             className={`hero-play-pause ${isPlaying ? 'playing' : 'paused'}`}
             onClick={togglePlayPause}
-            aria-label={isPlaying ? 'Pause video' : 'Play video'}
+            aria-label={isPlaying ? 'Pause' : 'Play'}
           >
             {isPlaying ? (
               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
